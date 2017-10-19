@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Anima stickman</title>
+    <style>
+        @keyframes stickmanmoves {
+            to  {
+                background-position: -22400px 0;
+            }
+        }
+        .stickman {
+            background-image: url("ANima3-01.png");
+            height: 800px;
+            width: 800px;
+            animation: stickmanmoves 2s steps(28) infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="Stick">
+        <div class="stickman"></div>
+    </div>
+
+</body>
+</html>
