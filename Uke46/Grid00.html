@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>The Grid</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        main   {
+            display: grid;
+            grid-gap: 5px;
+            grid-template-columns: repeat(8, 1fr);
+        }
+        main > p {
+            background-color: darkorchid;
+            color: white;
+            font-family: sans-serif;
+            text-align: center;
+        }
+        .row-3 {
+            grid-column: span 3;
+        }
+        .col-3 {
+            grid-row: span 3;
+            background-color: #D60000;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+
+        <p>D</p>
+        <p>E</p>
+        <p>T</p>
+        <p>T</p>
+        <p class="row-3">E</p>
+        <p> </p>
+        <p class="col-3 row-3">E</p>
+        <p>R</p>
+        <p> </p>
+        <p>E</p>
+        <p>T</p>
+        <p> </p>
+        <p>E</p>
+        <p class="col-3">K</p>
+        <p>S</p>
+        <p>E</p>
+        <p>M</p>
+        <p>P</p>
+        <p>E</p>
+        <p>l</p>
+        <p> </p>
+        <p>M</p>
+        <p>E</p>
+        <p>D</p>
+        <p> </p>
+        <p>G</p>
+        <p>R</p>
+        <p>I</p>
+        <p>D</p>
+
+    </main>
+
+
+</body>
+</html>
