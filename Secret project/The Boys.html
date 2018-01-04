@@ -5,13 +5,20 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <title>Biathlon Store</title>
     <style>
-        * {
-
+        @media (max-width: 500px){
+            body > header > nav > a > img {
+                width: 50px;
+                height: 50px;
+            }
+            body > main > article > img {
+                width: 50%;
+            }
         }
         body    {
             margin: 0;
             min-height: 100vh;
             font-family: "lato", sans-serif;
+            max-width: 100vw;
         }
         body > header {
             background-color: lightsteelblue;
@@ -55,13 +62,12 @@
             padding:18px;
             box-sizing: border-box;
         }
-        #shit1, #shit2 {
+        #shit1, #shit2, #shit3, #shit4 {
             grid-column: span 1;
             max-width: 1fr;
 
-
         }
-        #shit1:hover, #shit2:hover {
+        #shit1:hover, #shit2:hover, #shit3:hover, #shit4:hover {
             background-color: rgba(70, 130, 180, 0.7);
         }
         header > nav > a > img {
@@ -80,8 +86,12 @@
         #shit2 > img {
             width: 80%;
         }
-
-
+        #shit3 > img {
+            width: 80%;
+        }
+        #shit4 > img {
+            width: 70%;
+        }
     </style>
 </head>
 <body>
@@ -98,7 +108,7 @@
 
 
 <main>
-    <article class="" id="shitorg">
+    <article id="shitorg">
         <h1>Biathlon Official Website</h1>
         <h3>All you need on one website</h3>
     </article>
@@ -109,6 +119,14 @@
     <article id="shit2">
         <h3>He shit the bed again</h3>
         <img src="Emil+Hegle+Svendsen+IBU+Biathlon+World+Championships+kcyMGFmQ_NWl.jpg">
+    </article>
+    <article id="shit3">
+        <h3>Nye våpenregler denne sesongen</h3>
+        <img src="JanOlavskjefte3.jpg">
+    </article>
+    <article id="shit4">
+        <h3>Nye kulefavoritten</h3>
+        <img src="i283259_1451063323273.jpg">
     </article>
 </main>
 </body>
