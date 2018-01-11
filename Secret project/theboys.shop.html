@@ -5,24 +5,29 @@
     <title>Biathlon Shop</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <style>
+        @media (max-width: 800px) {
+            body > main  {
+               grid-template-columns: 1fr 1fr;
+            }
+        }
         @media (max-width: 500px) {
             body > header > nav > a > img {
-                width: 50px;
                 height: 50px;
+                width: 50px;
+            }
+            body > main {
+                grid-template-columns: 1fr;
             }
         }
         body {
-            background-image: url("52736688-isolated-black-set-of-biathlon-silhouette-stock-illustration-for-design-on-white-background-Stock-Vector.jpg");
+            background-image: url("536823-best-snow-wallpaper-hd-1920x1080-meizu.jpg");
             background-position: center;
             background-size: cover;
+            max-width: 100vw;
         }
+
         body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
-        body, html {
-            height: 100%;
-            color: #777;
-            line-height: 1.8;
-        }
-        body    {
+        body   {
             margin: 0;
             min-height: 100vh;
             font-family: "lato", sans-serif;
@@ -45,18 +50,26 @@
             background-color: steelblue;
             color: white;
         }
-        body > header > nav > a > img {
+        header > nav > a > img {
             width: 70px;
             height: 70px;
         }
-
-        body {
-            background-color: #eeeeee;
-            margin: 0;
-            font-family: sans-serif;
-            color: #333;
+        body > main > article > img {
+            width: 400px;
+            height: 400px;
         }
-
+        body > main {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        body > main > article {
+            font-size: 20px;
+            color: #222222;
+            text-align: center;
+            text-transform: uppercase;
+            padding:18px;
+            box-sizing: border-box;
+        }
     </style>
 </head>
 <body>
@@ -68,6 +81,21 @@
         <a href="Theboys.contactus.html"><img src="I%20love%20myself%204.png" alt=""></a>
     </nav>
 </header>
+<main>
+    <article>
+        <img src="646810_1.jpg">
+        <p>Handle ski?</p>
+    </article>
+    <article>
+        <img src="skiskytterrifle-fortner-1827-aecb985c-64fa-4dcb-920a-da47fdc91383.jpg">
+        <p>Nytt gevær?</p>
+    </article>
+    <article>
+        <img src="staver-01-f-nilsen.jpg">
+        <p>Brukket staven igjen?</p>
+    </article>
+
+</main>
 
 </body>
 </html>
