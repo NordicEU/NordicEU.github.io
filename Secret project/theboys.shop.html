@@ -5,20 +5,7 @@
     <title>Biathlon Shop</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <style>
-        @media (max-width: 800px) {
-            body > main  {
-               grid-template-columns: 1fr 1fr;
-            }
-        }
-        @media (max-width: 500px) {
-            body > header > nav > a > img {
-                height: 50px;
-                width: 50px;
-            }
-            body > main {
-                grid-template-columns: 1fr;
-            }
-        }
+
         body {
             background-image: url("536823-best-snow-wallpaper-hd-1920x1080-meizu.jpg");
             background-position: center;
@@ -54,21 +41,48 @@
             width: 70px;
             height: 70px;
         }
-        body > main > article > img {
+        body > main > a > article > img {
             width: 400px;
             height: 400px;
         }
-        body > main {
+        #bais:hover {
+            background-color: rgba(70, 130, 180, 0.7);
+        }
+        body > main > a {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
         }
-        body > main > article {
-            font-size: 20px;
+        body > main > a > article {
+            font
+            font-size: 40px;
             color: #222222;
             text-align: center;
             text-transform: uppercase;
             padding:18px;
             box-sizing: border-box;
+        }
+
+        @media (max-width: 1300px) {
+            body > main > a  {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 900px) {
+            body > main > a > article > img {
+                width: 300px;
+                height: 300px;
+            }
+        }
+        @media (max-width: 680px) {
+            body > main > a {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 600px) {
+            body > header > nav > a > img {
+                height: 50px;
+                width: 50px;
+            }
         }
     </style>
 </head>
@@ -82,19 +96,20 @@
     </nav>
 </header>
 <main>
-    <article>
+    <a href="#">
+    <article id="bais">
         <img src="646810_1.jpg">
         <p>Handle ski?</p>
     </article>
-    <article>
+    <article id="bais">
         <img src="skiskytterrifle-fortner-1827-aecb985c-64fa-4dcb-920a-da47fdc91383.jpg">
         <p>Nytt gevær?</p>
     </article>
-    <article>
+    <article id="bais">
         <img src="staver-01-f-nilsen.jpg">
         <p>Brukket staven igjen?</p>
     </article>
-
+    </a>
 </main>
 
 </body>
