@@ -15,7 +15,6 @@
             font-family: lato, sans-serif;
             max-width: 700px;
             margin-left: 200px;
-            background-color: #eeeeee;
         }
         main > img {
             width: 500px;
@@ -41,7 +40,7 @@
             /* legger luft mellom elementene */
             align-content: space-between;
             position: absolute;
-            top: 150px;
+            top: 170px;
         }
         #burger > div {
             height: 2px;
@@ -50,10 +49,12 @@
         #menu {
             position: absolute;
             width: 280px;
-            min-height: calc(50vh - 32px);
+            min-height: calc(20vh - 32px);
             left: -300px;
-            top: 182px;
+            top: 212px;
             transition: 1s;
+            background-color: white;
+
         }
         #menu > a {
             font-family: Lato, sans-serif;
@@ -83,6 +84,12 @@
         #cb:checked ~ #burger > div:last-child {
             transform: translateY(-7px) rotate(-45deg);
 
+        }
+        header:hover {
+            background-color: white;
+        }
+        a:hover {
+            background-color: white;
         }
     </style>
 </head>
