@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample FirebaseUI App</title>
+    <style>
+    body {
+    background-color: #eeeeee;
+    }
+    main {
+    max-width: 700px;
+    margin: auto;
+    padding: 10px;
+    background-color: white;
+    }
+    h1 {
+        text-align: center;
+        color: deepskyblue;
+    }
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDW8OtiBXkhUSeKbtxxd78R_WX5neV7iSw",
+            authDomain: "leggo-it1-databaser.firebaseapp.com",
+            databaseURL: "https://leggo-it1-databaser.firebaseio.com",
+            projectId: "leggo-it1-databaser",
+            storageBucket: "leggo-it1-databaser.appspot.com",
+            messagingSenderId: "1059380992263"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.7.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.7.0/firebaseui.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.min.css">
+    <script type="text/javascript">
+        // FirebaseUI config.
+        var uiConfig = {
+            signInSuccessUrl: 'Homepage.html',
+            signInOptions: [
+                // Leave the lines as is for the providers you want to offer your users.
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID
+            ],
+            // Terms of service url.
+            tosUrl: '<your-tos-url>'
+        };
+
+        // Initialize the FirebaseUI Widget using Firebase.
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+        // The start method will wait until the DOM is loaded.
+        ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+</head>
+<body>
+<!-- The surrounding HTML is left untouched by FirebaseUI.
+     Your app may use that space for branding, controls and other customizations.-->
+<h1>Welcome, please log in to not get cancer</h1>
+<div id="firebaseui-auth-container"></div>
+</body>
+</html>
