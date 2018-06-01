@@ -2,7 +2,7 @@
 <html lang="no">
 <head>
     <meta charset="UTF-8">
-    <title>Sample FirebaseUI App</title>
+    <title>Log in Page</title>
     <style>
     body {
     background-color: #eeeeee;
@@ -14,8 +14,9 @@
     background-color: white;
     }
     h1 {
+        font-family: Lato, sans-serif;
         text-align: center;
-        color: deepskyblue;
+        color: darkslategrey;
     }
     </style>
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
@@ -33,11 +34,10 @@
     </script>
     <script src="https://cdn.firebase.com/libs/firebaseui/2.7.0/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.7.0/firebaseui.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.min.css">
     <script type="text/javascript">
         // FirebaseUI config.
         var uiConfig = {
-            signInSuccessUrl: 'Homepage.html',
+            signInSuccessUrl: 'HomePage.html',
             signInOptions: [
                 // Leave the lines as is for the providers you want to offer your users.
                 firebase.auth.GoogleAuthProvider.PROVIDER_ID
@@ -55,7 +55,7 @@
 <body>
 <!-- The surrounding HTML is left untouched by FirebaseUI.
      Your app may use that space for branding, controls and other customizations.-->
-<h1>Welcome, please log in to not get cancer</h1>
+<h1>Welcome, please log in to gain access to our website</h1>
 <div id="firebaseui-auth-container"></div>
 </body>
 </html>
