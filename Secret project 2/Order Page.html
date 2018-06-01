@@ -2,12 +2,9 @@
 <html lang="no">
 <head>
     <meta charset="UTF-8">
-    <title>Home Page</title>
+    <title>Order Page</title>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <style>
-        body {
-            background-color: black;
-        }
         #burger {
             display: grid;
             width: 32px;
@@ -34,7 +31,7 @@
             text-decoration: none;
             font-size: 32px;
             border-bottom: solid 2px;
-            color: darkslategrey;
+            color: midnightblue;
             text-align: center;
         }
         #cb {
@@ -71,7 +68,7 @@
         h1 {
             font-size: 50px;
             text-align: center;
-            color: darkslategrey;
+            color: midnightblue;
         }
         main > input {
             width: 100%;
@@ -98,6 +95,9 @@
         }
         .lblDelete:hover {
             opacity: 1;
+        }
+        header {
+            max-height: 100px;
         }
     </style>
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
@@ -209,7 +209,7 @@
 </head>
 <body>
 <header>
-    <img src="">
+    <img src="Header.png">  
 </header>
 <input type="checkbox" id="cb">
 <label for="cb" id="burger">
@@ -218,14 +218,11 @@
     <div></div>
 </label>
 <nav id="menu">
-    <a href="#">
+    <a href="HomePage2.html">
+        <p>Home Page</p>
+    </a>
+    <a href="Order%20Page.html">
         <p>Order a coach</p>
-    </a>
-    <a href="#">
-        <p>About us</p>
-    </a>
-    <a href="#">
-        <p>Contact us</p>
     </a>
 </nav>
 <main>
@@ -234,7 +231,6 @@
     <section id="todolist">
 
     </section>
-
 </main>
 
 

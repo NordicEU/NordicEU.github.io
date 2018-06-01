@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Coaching</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <style>
+        body {
+            background-color: #eeeeee;
+        }
+        main {
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            font-family: lato, sans-serif;
+            max-width: 700px;
+            margin-left: 200px;
+            background-color: #eeeeee;
+        }
+        main > img {
+            width: 500px;
+        }
+        h1 {
+            font-size: 50px;
+            text-align: center;
+            color: midnightblue;
+        }
+        p {
+            font-family: Lato, sans-serif;
+            text-align: center;
+            font-size: 27px;
+        }
+        .col-1 {  grid-column:  span 1;  }  
+        .col-2 {  grid-column:  span 2;  }  
+                                            
+        #burger {
+            display: grid;
+            grid-template-columns: 1fr;
+            width: 32px;
+            height: 32px;
+            /* legger luft mellom elementene */
+            align-content: space-between;
+            position: absolute;
+            top: 150px;
+        }
+        #burger > div {
+            height: 2px;
+            background-color: black;
+        }
+        #menu {
+            position: absolute;
+            width: 280px;
+            min-height: calc(50vh - 32px);
+            left: -300px;
+            top: 182px;
+            transition: 1s;
+        }
+        #menu > a {
+            font-family: Lato, sans-serif;
+            text-decoration: none;
+            font-size: 32px;
+            border-bottom: solid 2px;
+            color: midnightblue;
+            text-align: center;
+        }
+        #cb {
+            display: none;
+        }
+        #burger > div{
+            transition: 1s;
+        }
+        #cb:checked ~ #menu{
+            left: 0;
+        }
+        #cb:checked ~ #burger > div:first-child {
+            transform: translateY(7px) rotate(45deg);
+
+        }
+        #cb:checked ~ #burger > div:nth-child(2) {
+            opacity: 0;
+
+        }
+        #cb:checked ~ #burger > div:last-child {
+            transform: translateY(-7px) rotate(-45deg);
+
+        }
+    </style>
+</head>
+<body>
+<header>
+    <img src="Header.png">
+</header>
+<input type="checkbox" id="cb">
+<label for="cb" id="burger">
+    <div></div>
+    <div></div>
+    <div></div>
+</label>
+<nav id="menu">
+    <a href="HomePage2.html">
+        <p>Home Page</p>
+    </a>
+    <a href="Order%20Page.html">
+        <p>Order a coach</p>
+    </a>
+</nav>
+<main>
+    <h1 class="col-2">Welcome to Dynamic Coaching</h1>
+    <p class="col-2">Dynamic Coaching is the most versatile coaching service in the world.</p>
+    <img class="col-1" src="gaming.jpg">
+    <img class="col-1" src="B88210386Z.1_20180530143315_000_GNI6SN6K.8-0_Gallery.jpg">
+    <p class="col-2">We provide coaching for almost anything in the world</p>
+</main>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDW8OtiBXkhUSeKbtxxd78R_WX5neV7iSw",
+        authDomain: "leggo-it1-databaser.firebaseapp.com",
+        databaseURL: "https://leggo-it1-databaser.firebaseio.com",
+        projectId: "leggo-it1-databaser",
+        storageBucket: "leggo-it1-databaser.appspot.com",
+        messagingSenderId: "1059380992263"
+    };
+    firebase.initializeApp(config);
+</script>
+<script type="text/javascript">
+    initApp = function() {
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                // User is signed in.
+                var displayName = user.displayName;
+                var email = user.email;
+                var emailVerified = user.emailVerified;
+                var photoURL = user.photoURL;
+                var uid = user.uid;
+                var phoneNumber = user.phoneNumber;
+                var providerData = user.providerData;
+                user.getIdToken().then(function(accessToken) {
+
+                });
+} else {
+// User is signed out.
+
+}
+}, function(error) {
+console.log(error);
+});
+};
+
+window.addEventListener('load', function() {
+initApp()
+});
+</script>
+</body>
+</html>
