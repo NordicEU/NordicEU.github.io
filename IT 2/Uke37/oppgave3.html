@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppgave3</title>
+    <style>
+        img {
+        }
+    </style>
+</head>
+<body>
+
+<button id="minKnapp">Trykk her</button>
+
+<img id="mittBilde" src="">
+
+<script>
+
+    var minKnapp = document.getElementById("minKnapp");
+    var mittBilde = document.getElementById("mittBilde");
+
+
+    var bilder = ["deadpool-thumbs-up.jpg", "759be0d25b0fef51c755d48fc9fdce30.png", "funnyhorses.jpg"];
+
+    minKnapp.onclick = function () {
+        mittBilde.src = bilder[Math.floor(Math.random()*3)];
+        mittBilde.style.width = window.innerWidth + "px";
+    }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <style>
+        #burger {
+            display: grid;
+            width: 32px;
+            height: 32px;
+            /* legger luft mellom elementene */
+            align-content: space-between;
+            position: absolute;
+            top: 150px;
+        }
+        #burger > div {
+            height: 2px;
+            background-color: black;
+        }
+        #menu {
+            position: absolute;
+            width: 280px;
+            min-height: calc(50vh - 32px);
+            left: -300px;
+            top: 182px;
+            transition: 1s;
+        }
+        #menu > a {
+            font-family: Lato, sans-serif;
+            text-decoration: none;
+            font-size: 32px;
+            border-bottom: solid 2px;
+            color: midnightblue;
+            text-align: center;
+        }
+        #cb {
+            display: none;
+        }
+        #burger > div{
+            transition: 1s;
+        }
+        #cb:checked ~ #menu{
+            left: 0;
+        }
+        #cb:checked ~ #burger > div:first-child {
+            transform: translateY(7px) rotate(45deg);
+
+        }
+        #cb:checked ~ #burger > div:nth-child(2) {
+            opacity: 0;
+
+        }
+        #cb:checked ~ #burger > div:last-child {
+            transform: translateY(-7px) rotate(-45deg);
+
+        }
+        body {
+            background-color: #eeeeee;
+        }
+        main {
+            font-family: lato, sans-serif;
+            padding-top: 100px;
+            max-width: 700px;
+            margin: auto;
+            background-color: #eeeeee;
+        }
+        h1 {
+            font-size: 50px;
+            text-align: center;
+            color: midnightblue;
+        }
+        main > input {
+            width: 100%;
+            padding: 4px;
+            font-size: 1.4rem;
+        }
+        article {
+            font-size: 1.3rem;
+        }
+        #inpText {
+            background-color: whitesmoke;
+            font-size: 1.2rem; /* 1.2 x vanlig text størrelse */
+            padding: 4px;
+        }
+        #todolist > article {
+            display: grid;
+            grid-template-columns: 1fr auto;
+        }
+        .lblDelete {
+            font-weight: bold;
+            padding-right: 5px;
+            padding-left: 5px;
+            opacity: 0.5;
+        }
+        .lblDelete:hover {
+            opacity: 1;
+        }
+        header {
+            max-height: 100px;
+        }
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDW8OtiBXkhUSeKbtxxd78R_WX5neV7iSw",
+            authDomain: "leggo-it1-databaser.firebaseapp.com",
+            databaseURL: "https://leggo-it1-databaser.firebaseio.com",
+            projectId: "leggo-it1-databaser",
+            storageBucket: "leggo-it1-databaser.appspot.com",
+            messagingSenderId: "1059380992263"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script type="text/javascript">
+        initApp = function() {
+            firebase.auth().onAuthStateChanged(function(user) {
+                if (user) {
+                    // User is signed in.
+                    var displayName = user.displayName;
+                    var email = user.email;
+                    var emailVerified = user.emailVerified;
+                    var photoURL = user.photoURL;
+                    var uid = user.uid;
+                    var phoneNumber = user.phoneNumber;
+                    var providerData = user.providerData;
+                    user.getIdToken().then(function(accessToken) {
+
+                        /***********/
+
+                        const inpTekst = document.getElementById("inpTekst");
+                        const todolist = document.getElementById("todolist");
+
+                        const db = firebase.database();
+                        const todos = db.ref("todos");
+
+
+                        function deletetodo(key) {
+                            const todo = todos.child(key);
+                            todo.remove(); //sletter todo fra databasen
+                            // referanse til html element som skal slettes
+                            const todoSomSkalSlettes = document.getElementById(key);
+                            //fjerner det fra section med id "todolist"
+                            todolist.removeChild(todoSomSkalSlettes);
+                        }
+
+                        function lagreTodo() {
+                            todos.push({
+                                tekst: inpTekst.value,
+                                done: false,
+                                userid: uid,
+                                name: displayName
+                            });
+                            inpTekst.value = "";
+                        }
+
+
+
+
+                        let count = 0;
+
+                        function visTodo(snap) {
+                            count++;
+                            const todo = snap.val();
+                            const key = snap.key; /* primærnøkkelen */
+                            let artikkel = document.createElement("article");
+                            artikkel.id = key;
+                            artikkel.innerHTML = `
+
+                                    <label>${count} ${todo.tekst}  ${todo.name}</label>
+                                    <label class="lblDelete">X</label>
+
+                                `;
+                            todolist.appendChild(artikkel);
+
+                            artikkel.querySelector(".lblDelete").onclick = function() {
+                                deletetodo(key);
+                                //alert("Du klikket på " + artikkel.id);
+                            }
+                        }
+
+
+
+                        inpTekst.onchange = lagreTodo;
+                        todos
+                            .orderByChild("userid")
+                            .equalTo(uid)
+                            .on("child_added", visTodo);
+
+                        /***********/
+
+
+
+                    });
+                } else {
+                    // User is signed out.
+
+                }
+            }, function(error) {
+                console.log(error);
+            });
+        };
+
+        window.addEventListener('load', function() {
+            initApp()
+        });
+    </script>
+</head>
+<body>
+<header>
+    <img src="Header.png">  
+</header>
+<input type="checkbox" id="cb">
+<label for="cb" id="burger">
+    <div></div>
+    <div></div>
+    <div></div>
+</label>
+<nav id="menu">
+    <a href="HomePage2.html">
+        <p>Home Page</p>
+    </a>
+    <a href="Order Page.html">
+        <p>Order a coach</p>
+    </a>
+</nav>
+<main>
+    <h1>Order your coach here</h1>
+    <input type="text" id="inpTekst" placeholder="Write the name of the coaching subject" autofocus>
+    <section id="todolist">
+
+    </section>
+</main>
+
+
+<script>
+
+</script>
+<div id="sign-in-status"></div>
+<div id="sign-in"></div>
+<div id="account-details"></div>
+</body>
+</html>

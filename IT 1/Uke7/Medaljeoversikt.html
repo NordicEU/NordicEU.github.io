@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.min.css">
+    <style>
+
+        main {
+            max-width: 700px;
+            margin: auto;
+            padding: 10px;
+        }
+        table img {
+            width: 24px;
+        }
+        th {
+            cursor: pointer;
+        }
+
+    </style>
+    <title>Medaljeoversikt</title>
+</head>
+<body>
+
+    <main>
+
+        <table>
+            <thead>
+                <tr>
+                    <th id="thNasjon">Nasjon</th>
+                    <th id="thGull">Gull</th>
+                    <th id="thSolv">Sølv</th>
+                    <th id="thBronse">Bronse</th>
+                    <th id="thTotal">Total</th>
+                </tr>
+
+            </thead>
+            <tbody id="tb">
+
+            </tbody>
+        </table>
+
+    </main>
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDW8OtiBXkhUSeKbtxxd78R_WX5neV7iSw",
+            authDomain: "leggo-it1-databaser.firebaseapp.com",
+            databaseURL: "https://leggo-it1-databaser.firebaseio.com",
+            projectId: "leggo-it1-databaser",
+            storageBucket: "leggo-it1-databaser.appspot.com",
+            messagingSenderId: "1059380992263"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <script>
+        const thGull = document.getElementById("thGull");
+        const thSolv = document.getElementById("thSolv");
+        const thBronse = document.getElementById("thBronse");
+        const thTotal = document.getElementById("thTotal");
+        const thNasjon = document.getElementById("thNasjon")
+
+
+        const tb = document.getElementById("tb");
+
+        const db = firebase.database();
+        const landene = db.ref("AlleLand");
+
+        function visLand(data) {
+            let land = data.val();
+            let pk = data.key;
+
+            tb.innerHTML = `
+            <tr>
+                <td>
+                <img src="Bilder/${pk}.svg">
+                <span>${land.navn}</span>
+                </td>
+                <td>${land.gold}</td>
+                <td>${land.silver}</td>
+                <td>${land.bronze}</td>
+                <td>${land.total}</td>
+            </tr>
+            ` + tb.innerHTML;
+        }
+        function visLandOmvendt(data) {
+            let land = data.val();
+            let pk = data.key;
+
+            tb.innerHTML += `
+            <tr>
+                <td>
+                <img src="Bilder/${pk}.svg">
+                <span>${land.navn}</span>
+                </td>
+                <td>${land.gold}</td>
+                <td>${land.silver}</td>
+                <td>${land.bronze}</td>
+                <td>${land.total}</td>
+            </tr>
+            `;
+        }
+        function sorterGull() {
+            tb.innerHTML = "";
+            landene
+                .orderByChild("gold")
+                .on("child_added", visLand);
+        }
+        function sorterSolv() {
+            tb.innerHTML = "";
+            landene
+                .orderByChild("silver")
+                .on("child_added", visLand);
+        }
+        function sorterBronse() {
+            tb.innerHTML = "";
+            landene
+                .orderByChild("bronze")
+                .on("child_added", visLand);
+        }
+        function sorterTotal() {
+            tb.innerHTML = "";
+            landene
+                .orderByChild("total")
+                .on("child_added", visLand);
+        }
+        function sorterNasjon() {
+            tb.innerHTML = "";
+            landene
+                .orderByChild("navn")
+                .on("child_added", visLandOmvendt);
+        }
+
+
+
+        thGull.onclick = sorterGull;
+        thSolv.onclick = sorterSolv;
+        thBronse.onclick = sorterBronse;
+        thTotal.onclick = sorterTotal;
+        thNasjon.onclick = sorterNasjon;
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Grid Design</title>
+    <style>
+
+
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+        }
+        main > * {
+            background-color: lightblue;
+            border: 1px solid black;
+        }
+
+        .row-1 {  grid-row: span 1;  }
+        .row-2 {  grid-row: span 2;  }
+        .row-3 {  grid-row: span 3;  }
+        .row-4 {  grid-row: span 4;  }
+        .row-5 {  grid-row: span 5;  }
+        .row-6 {  grid-row: span 6;  }
+        .row-7 {  grid-row: span 7;  }
+        .row-8 {  grid-row: span 8;  }
+        .row-9 {  grid-row: span 9;  }
+        .row-10 {  grid-row: span 10;  }
+        .row-11 {  grid-row: span 11;  }
+        .row-12 {  grid-row: span 12;  }
+
+        .col-1 {  grid-column:  span 1;  }
+        .col-2 {  grid-column:  span 2;  }
+        .col-3 {  grid-column:  span 3;  }
+        .col-4 {  grid-column:  span 4;  }
+        .col-5 {  grid-column:  span 5;  }
+        .col-6 {  grid-column:  span 6;  }
+        .col-7 {  grid-column:  span 7;  }
+        .col-8 {  grid-column:  span 8;  }
+        .col-9 {  grid-column:  span 9;  }
+        .col-10 {  grid-column: span 10;  }
+        .col-11 {  grid-column: span 11;  }
+        .col-12 {  grid-column: span 12;  }
+    </style>
+</head>
+<body>
+
+    <main>
+        <div class="col-12">Dette er en tolver</div>
+        <div class="col-4">Dette er en firer</div>
+        <div class="col-4">Dette er en firer</div>
+        <div class="col-4">Dette er en firer</div>
+        <div class="col-2">Dette er en toer</div>
+        <div class="col-2">Dette er en toer</div>
+        <div class="col-2">Dette er en toer</div>
+        <div class="col-6">Dette er en sekser</div>
+
+
+    </main>
+
+
+
+</body>
+</html>

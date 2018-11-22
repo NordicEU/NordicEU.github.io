@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stoppeklokke</title>
+</head>
+<body>
+
+    <h1 id="klokka">0</h1>
+
+    <script>
+
+        const klokka = document.getElementById("klokka");
+
+        // starte funskjonen oppdaterklokka hvert sekund
+        // hvert titusende millisekund
+        let millisekunder = 0;
+
+        function oppdaterKlokka() {
+            millisekunder = millisekunder + 1000;
+
+            let sekunder = millisekunder / 1000;
+            klokka.innerHTML = sekunder;
+        }
+        setInterval(oppdaterKlokka, 1000);
+
+    </script>
+</body>
+</html>

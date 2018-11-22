@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Grid design</title>
+    <style>
+        body    {
+            margin: 0;
+            display: grid;
+            min-height: 100vh;
+            grid-template-rows: auto 1fr auto;
+            font-family: Arial sans-serif;
+        }
+        body > header {
+            background-color: white;
+            filter: drop-shadow(0 5px 5px black)
+        }
+        body > header > nav {
+            display: grid;
+            grid-auto-flow: column;
+        }
+        body > header > nav > a {
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            color: #222222;
+        }
+        body > header > nav > a:hover {
+            background-color: darkorange;
+            color: white;
+        }
+        body > footer {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            display: grid;
+            grid-gap: 20px;
+            grid-auto-flow: column;
+            text-align: center;
+        }
+        body > footer > article > img {
+            width: 90px;
+        }
+        body > main {
+            background-image: url("bgr.jpeg");
+            background-size: cover;
+            background-position: center center;
+            min-height: 100vh;
+        }
+        body > main > section {
+            text-align: center;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#">HOME</a>
+            <a href="#">AWAY</a>
+            <a href="#">ABOUT US</a>
+            <a href="#">STORE</a>
+            <a href="#">IMAGES</a>
+            <a href="#">CONTACT</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1>MODERN WEB DESIGN</h1>
+            <h2>Fresh & Responsive</h2>
+        </section>
+            <section>
+                <a href="griddesign.html">JOIN</a>
+            </section>
+    </main>
+    <footer>
+        <article>
+            <img src="Briller.png">
+            <p>sjjsifjisjdijdijsidfjisjda</p>
+        </article>
+        <article>
+            <img src="Lys.png">
+            <p>jssjisjfijsi</p>
+        </article>
+        <article>
+            <img src="Money.png">
+            <p>msjdisjdijsidjs</p>
+        </article>
+    </footer>
+
+</body>
+</html>

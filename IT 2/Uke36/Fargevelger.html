@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="no">
+<head id="head">
+    <meta charset="UTF-8">
+    <title>Fargevelger</title>
+    <style id="styleElement"></style>
+</head>
+<body>
+
+
+<input id="inpFarge" type="color">
+
+<script>
+
+
+    var inpFarge = document.getElementById("inpFarge");
+    var head = document.getElementById("head");
+
+    inpFarge.onchange = function () {
+        //head.innerHTML = `<style>body {background-color: ${inpFarge};}</style>`;
+        document.body.style.backgroundColor = inpFarge.value;
+    }
+
+</script>
+
+
+</body>
+</html>

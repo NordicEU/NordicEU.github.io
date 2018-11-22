@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Enkel kalkulator</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+
+    <input id="inpTall" type="number" placeholder="Skriv inn ditt tall">
+    <input id="inpTall2" type="number" placeholder="Skriv inn ditt tall">
+    <span id="spnResultat"></span>
+    <br>
+    <button id="btnRegnUt">Regn ut</button>
+
+
+    <script>
+
+        var inpTall = document.getElementById("inpTall");
+        var inpTall2 = document.getElementById("inpTall2");
+        var spnResultat = document.getElementById("spnResultat");
+        var btnRegnUt = document.getElementById("btnRegnUt");
+
+        //console.log(inpTall.value);
+        //spnResultat.innerHTML(inpTall.value);
+
+
+        inpTall2.onkeyup = function () {
+            spnResultat.innerHTML = Number(inpTall.value) + Number(inpTall2.value);
+        }
+    </script>
+</body>
+</html>

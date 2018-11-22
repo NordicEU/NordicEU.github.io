@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Imdb</title>
+    <style>
+        body {
+            background-color: grey;
+            font-family: sans-serif;
+        }
+        main {
+            max-width: 970px;
+            margin: auto;
+        }
+        h1 {
+            margin-top: 0;
+        }
+        #alleFilmer {
+            display: grid;
+            grid-gap: 25px;
+        }
+
+
+        #alleFilmer > article {
+            position: relative;
+            /* hvis noe er plassert med absolutt posisjonering
+            så må beholderen den ligger inne i ha position: relative
+             */
+            background-color: whitesmoke;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-gap: 15px;
+            box-shadow: 2px 2px 2px black;
+        }
+        .metascore {
+            position: absolute;
+            background-color: steelblue;
+            padding: 10px;
+            color: whitesmoke;
+            top: 0;
+            right: 0;
+        }
+        #alleFilmer  img {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <main>
+
+        <section id="alleFilmer">
+
+        </section>
+    </main>
+
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDW8OtiBXkhUSeKbtxxd78R_WX5neV7iSw",
+        authDomain: "leggo-it1-databaser.firebaseapp.com",
+        databaseURL: "https://leggo-it1-databaser.firebaseio.com",
+        projectId: "leggo-it1-databaser",
+        storageBucket: "leggo-it1-databaser.appspot.com",
+        messagingSenderId: "1059380992263"
+    };
+    firebase.initializeApp(config);
+</script>
+
+<script>
+    //alle HTML-elementer
+    const alleFilmer = document.getElementById("alleFilmer");
+
+    // FIREBASEKONTAKT
+    const db = firebase.database();
+    const filmer = db.ref("Imdb/filmer");
+
+    function visFilm(filmData) {
+        // Primærnøkkel
+        const key = filmData.key;
+        //Data om filmen
+        const film = filmData.val();
+
+        let article = `
+            <article>
+            <div class="metascore">${film.Metascore}</div>
+            <img src="${film.Poster}">
+            <div>
+                <h1>${film.Title}</h1>
+                <p>${film.Genre}</p>
+                <p>${film.Actors}</p>
+                <p>${film.Plot}</p>
+            </div>
+            </article>
+        `;
+
+        alleFilmer.innerHTML = article + alleFilmer.innerHTML;
+    }
+
+    filmer
+        .orderByChild("Title")
+        .limitTo("s")
+        .on("child_added", visFilm);
+</script>
+
+</body>
+</html>

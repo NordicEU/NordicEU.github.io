@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nyttårsturen</title>
+    <link rel="stylesheet" href="stilark.css">
+    <link href="https://fonts.googleapis.com/css?family=Poor+Story" rel="stylesheet">
+</head>
+<body>
+
+    <main>
+
+        <div id="app">
+
+            <h1>Nyttårstur</h1>
+            <div id="boks">
+                <h3>Antall påmeldte</h3>
+                <div id="divTeller">0</div>
+
+            </div>
+            <div id="skjema">
+                <h4>Registrer deg her</h4>
+                <input type="checkbox" id="Medfolge">
+                <label for="Medfolge">Med følge?</label>
+                <button id="btnRegistrer">Registrer</button>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDW8OtiBXkhUSeKbtxxd78R_WX5neV7iSw",
+            authDomain: "leggo-it1-databaser.firebaseapp.com",
+            databaseURL: "https://leggo-it1-databaser.firebaseio.com",
+            projectId: "leggo-it1-databaser",
+            storageBucket: "leggo-it1-databaser.appspot.com",
+            messagingSenderId: "1059380992263"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script>
+
+        const divTeller = document.getElementById("divTeller");
+        const Medfolge = document.getElementById("Medfolge");
+        const btnRegistrer = document.getElementById("btnRegistrer");
+
+        let antall = 0;
+        let db = firebase.database();
+        let antallref = db.ref("registreringer");
+
+        antallref.on("value", );
+
+        function leggTil() {
+            antall += 1;
+            if(Medfolge.checked){
+                antall +=1;
+            }
+            divTeller.innerHTML = antall;
+            antallref.push({
+                antall: antall
+            });
+        }
+        btnRegistrer.onclick = leggTil;
+
+
+
+    </script>
+
+</body>
+</html>

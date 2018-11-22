@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Switch</title>
+</head>
+<body>
+
+<script>
+
+    var Mobil = prompt("Skriv inn et mobilmerke");
+
+    switch(Mobil){
+        case "Nokia":
+            document.write("Nokia er en gammel, men sturdy");
+            document.body.style.backgroundColor = "Brown";
+            break;
+        case "Apple":
+            document.write("Dyrt som bare faen, but we still buy it");
+            document.body.style.backgroundColor = "Grey";
+            break;
+        case "Sony":
+            document.write("They kinda are just there");
+            document.body.style.backgroundColor = "Black";
+            document.body.style.color = "White";
+            break;
+        case "Samsung":
+            document.write("I dont know");
+            document.body.style.backgroundColor = "Blue";
+            break;
+        default:
+            document.write("Dette er ikke et mobilmerke")
+    }
+</script>
+
+</body>
+</html>

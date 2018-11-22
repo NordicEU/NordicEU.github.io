@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Hjelp for skiskyttere</title>
+    <style>
+
+        #skyteskive {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            width: 700px;
+            border: 1px solid #eee;
+        }
+        #skyteskive > div {
+            width: 120px;
+            height: 120px;
+            background-color: black;
+            border-radius: 50%;
+        }
+
+        .skudd {
+            width: 20px;
+            height: 20px;
+            background-color: #D60000;
+            border-radius: 50%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="skyteskive">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <button id="btnSlett">SLETT ALLE SKUDD</button>
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDW8OtiBXkhUSeKbtxxd78R_WX5neV7iSw",
+            authDomain: "leggo-it1-databaser.firebaseapp.com",
+            databaseURL: "https://leggo-it1-databaser.firebaseio.com",
+            projectId: "leggo-it1-databaser",
+            storageBucket: "leggo-it1-databaser.appspot.com",
+            messagingSenderId: "1059380992263"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <script>
+        const skyteskive = document.getElementById("skyteskive");
+
+        const btnSlett = document.getElementById("btnSlett");
+
+
+        const db = firebase.database();
+        const skuddene = db.ref("skuddene");
+
+        function lagreSkudd(klikk) {
+            skuddene.push({
+                x: klikk.clientX,
+                y: klikk.clientY
+            });
+        }
+
+        function visSkudd(snap) {
+            let skudd = snap.val();
+            let x = skudd.x -10;
+            let y = skudd.y - 10;
+
+
+            document.body.innerHTML += `
+             <div class="skudd" style="left: ${x}px; top: ${y}px;"></div>
+            `;
+        }
+
+        function sletteSkudd() {
+            console.log("Nå har du klikket");
+            skuddene.remove();
+        }
+
+        document.onclick = lagreSkudd;
+        btnSlett.onclick = sletteSkudd;
+        skuddene.on("child_added", visSkudd);
+
+    </script>
+</body>
+</html>

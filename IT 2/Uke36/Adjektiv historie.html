@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adjektiv Historie</title>
+</head>
+<body>
+
+<input id="adj1" type="text">
+<input id="adj2" type="text">
+<input id="adj3" type="text">
+<input id="adj4" type="text">
+<input id="adj5" type="text">
+<input id="adj6" type="text">
+<input id="adj7" type="text">
+<input id="adj8" type="text">
+<input id="adj9" type="text">
+<input id="adj0" type="text">
+
+<button id="knapp">Lag Historie</button>
+
+<div id="Historie"></div>
+
+
+<script>
+
+    var Historie = document.getElementById("Historie");
+    var adj1 = document.getElementById("adj1");
+    var adj2 = document.getElementById("adj2");
+    var adj3 = document.getElementById("adj3");
+    var adj4 = document.getElementById("adj4");
+    var adj5 = document.getElementById("adj5");
+    var adj6 = document.getElementById("adj6");
+    var adj7 = document.getElementById("adj7");
+    var adj8 = document.getElementById("adj8");
+    var adj9 = document.getElementById("adj9");
+    var adj0 = document.getElementById("adj0");
+
+    var knapp = document.getElementById("knapp");
+
+
+    knapp.onclick = function () {
+    Historie.innerHTML = `En dag var det en ${adj4.value} dag, sola er ${adj6.value} og skyene er ${adj1.value}.
+    På en ${adj7.value} sommerdag skulle den ${adj0.value} IT-klassen på overnattingstur. Alle de ${adj3.value} elevene
+    hadde med se sovepose og en ${adj5.value} sekk med mat og varmt tøy. Alle gledet seg til denne ${adj2.value} turen.
+    Magnus hadde på seg en ${adj9.value} jakke og ${adj8.value} lue.`
+    };
+
+</script>
+
+
+</body>
+</html>

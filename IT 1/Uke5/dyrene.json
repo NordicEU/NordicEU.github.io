@@ -1,0 +1,18 @@
+{
+  "dyrene" : [
+    {
+      "navn" : "Fido",
+      "type" : "Hund",
+      "bilder" : "fido.jpg",
+      "tekst" : "Fido har forsvunnet",
+      "telefon" : "97835276"
+    },
+    {
+      "navn" : "Silkesvarten",
+      "type" : "Hest",
+      "bilde" : "svarten.jpg",
+      "tekst" : "Hesten slet seg ut av selen",
+      "telefon" : "7832083"
+    }
+  ]
+}

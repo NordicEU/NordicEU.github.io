@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppgave 1</title>
+</head>
+<body>
+    <input type="number" id="inputFelt">
+    <div id="losning"></div>
+
+    <script>
+        const inputFelt = document.getElementById("inputFelt");
+        const losning = document.getElementById("losning");
+
+
+        inputFelt.oninput = function () {
+            if(inputFelt.value == 0){
+                losning.innerHTML = "Lik null";
+            }
+            else if(inputFelt.value > 0){
+                losning.innerHTML = "Større enn null";
+            }
+            else{
+                losning.innerHTML = "Mindre enn null";
+            }
+
+        }
+
+    </script>
+
+
+</body>
+</html>

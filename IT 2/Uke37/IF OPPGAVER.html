@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Er du høy nok</title>
+    <style>
+        body {
+            border: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        img {
+
+        }
+    </style>
+</head>
+<body>
+
+<input id="svar" type="text" placeholder="Hvor mange år har folk brukt briller?">
+<button id="knapp">Sjekk svar</button>
+<img src="" id="R/G">
+
+
+
+<script>
+    var Bilde = document.getElementById("R/G");
+    var svar = document.getElementById("svar");
+    var knapp = document.getElementById("knapp");
+
+
+     knapp.onclick = function () {
+        if (svar.value === "700år") {
+            Bilde.src = "deadpool-thumbs-up.jpg";
+            Bilde.style.width = window.innerWidth + "px";
+            Bilde.style.height = window.innerHeight + "px";
+        }
+        else {
+            Bilde.src = "funnyhorses.jpg";
+            Bilde.style.width = window.innerWidth + "px";
+            Bilde.style.height = window.innerHeight + "px";
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

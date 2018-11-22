@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD</title>
+</head>
+<body>
+
+<main id="main"></main>
+
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDW8OtiBXkhUSeKbtxxd78R_WX5neV7iSw",
+        authDomain: "leggo-it1-databaser.firebaseapp.com",
+        databaseURL: "https://leggo-it1-databaser.firebaseio.com",
+        projectId: "leggo-it1-databaser",
+        storageBucket: "leggo-it1-databaser.appspot.com",
+        messagingSenderId: "1059380992263"
+    };
+    firebase.initializeApp(config);
+</script>
+<script>
+    const main = document.getElementById("main");
+
+    const db = firebase.database();
+
+    const bilregister = db.ref("bilregister");
+    const biler = db.ref("bilregistrer/biler");
+    const personer = db.ref("bilregister/personer");
+
+    // CREATE
+    const petter = personer.child("17028012345");
+    petter.set({
+        fornavn: "Petter",
+        etternavn: "Solberg"
+    });
+
+    // en annen person
+    const martin = personer.child("24039812345");
+    martin.set({
+        fornavn: "Martin",
+        etternavn: "Skanke"
+    });
+
+    // Forsøker å endre etternavnet til martin UPDATE
+    martin.update({
+        etternavn: "Schanche"
+    });
+    // SLetter petter solberg REMOVE
+    petter.remove();
+
+    // READ
+    function visPerson(snap) {
+        const person = snap.val();
+        main.innerHTML += `<p>NY person: ${person.fornavn}</p>`;
+    }
+    personer.on("child_added", visPerson);
+</script>
+
+</body>
+</html>

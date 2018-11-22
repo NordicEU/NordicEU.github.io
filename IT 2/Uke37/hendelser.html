@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Firkant som følger musen</title>
+    <style>
+        #firkant {
+            background-color: #0d99a5;
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<img id="firkant" src="../Uke43/deadpool-thumbs-up.jpg" height="686" width="807"/>
+<script>
+
+        var firkant = document.getElementById("firkant");
+
+        document.onmousemove = function () {
+            var x = event.clientX;
+            var y = event.clientY;
+            console.log("x=" + x);
+            console.log("y=" + y);
+            firkant.style.marginLeft = x - 50 + "px";
+            firkant.style.marginTop = y - 50 + "px";
+         }
+
+    </script>
+</body>
+</html>

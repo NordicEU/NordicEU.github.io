@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hvem skriver?</title>
+    <style>
+
+        @keyframes ristMeg {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(10px);
+            }
+        }
+        #animasjon {
+            width: 20px;
+            height: 20px;
+            background-color: #3adb76;
+        }
+        .rist {
+            animation: ristMeg 0.5s infinite;
+        }
+    </style>
+</head>
+<body>
+
+<input type="text" placeholder="Hva mener du?" id="inpMelding ">
+<div id="animasjon" class="ikkeRist"></div>
+
+<script>
+    const inpMelding = document.getElementById("inpMelding");
+    const animasjon = document.getElementById("animasjon");
+
+    let timeout;
+
+    function startRisting() {
+        animasjon.classname = "rist";
+        clearTimeout(timeout);
+        timeout = setTimeout(stoppRisting, 5000)
+    }
+
+    function stoppRisting() {
+        animasjon.classname = "ikkeRist";
+    }
+
+    inpMelding.oninput = startRisting;
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Adjektiv Historie</title>
+</head>
+<body>
+
+<input id="adj1" type="text">
+
+<button id="knapp">Lag Historie</button>
+
+<div id="Historie"></div>
+
+
+<script>
+
+
+
+    var adj1 = document.getElementById("adj1");
+    var knapp = document.getElementById("knapp");
+
+
+    var Alladj = [];
+
+
+    adj1.onchange = function () {
+       Alladj.push(adj1)
+    };
+
+
+    /* knapp.onclick = function () {
+    var Historie = `En dag var det en ${adj4.value} dag, sola er ${adj6.value} og skyene er ${adj1.value}.
+    På en ${adj7.value} sommerdag skulle den ${adj0.value} IT-klassen på overnattingstur. Alle de ${adj3.value} elevene
+    hadde med se sovepose og en ${adj5.value} sekk med mat og varmt tøy. Alle gledet seg til denne ${adj2.value} turen.
+    Magnus hadde på seg en ${adj9.value} jakke og ${adj8.value} lue.`
+    document.write(Historie)
+    }; */
+
+</script>
+
+
+</body>
+</html>

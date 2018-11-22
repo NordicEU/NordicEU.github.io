@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppgave 4</title>
+</head>
+<body>
+
+<input type="number" id="guess">
+<button id="btn"></button>
+<div id="Svar"></div>
+<div id="Bilde"></div>
+
+
+<script>
+    const btn = document.getElementById("btn");
+    var guess = document.getElementById("guess");
+    const Svar = document.getElementById("Svar");
+    const Bilde = document.getElementById("Bilde");
+
+
+
+    var RN = Math.floor(Math.random()*101) + 1;
+
+    btn.onclick = function () {
+        if(guess.value == RN){
+            Svar.innerHTML = "Du gjettet riktig";
+            Bilde.innerHTML = `<img src"deadpool-thumbs-up.jpg">`
+
+        }
+        else if(guess.value > RN){
+            Svar.innerHTML = "Nedover er varmere"
+        }
+        else if (guess.value < RN){
+            Svar.innerHTML = "Oppover er varmere"
+        }
+        else {
+            Svar.innerHTML = "Dafuck skrev du din idiot"
+        }
+
+    }
+
+</script>
+
+</body>
+</html>

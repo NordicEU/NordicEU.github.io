@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array og object</title>
+</head>
+<body>
+
+
+<button id="knapp">MOVIETIME</button>
+
+<input type="text" id="inpFilm">
+
+
+<script>
+
+    // ARRAY
+    var inpFilm = document.getElementById("inpFilm");
+    var minArray = []; // lagd en array
+    var knapp = document.getElementById("knapp");
+
+
+
+
+    knapp.onclick = () => {
+        minArray.push(inpFilm.value);
+
+        if (minArray.length >= 6) {
+            console.log(minArray);
+        }
+    };
+
+
+    // OBJECT
+
+    var megSelv = {
+        navn: "Georg",
+        jobb: "Trener"
+    };
+
+
+
+
+
+</script>
+
+</body>
+</html>

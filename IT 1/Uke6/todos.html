@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>todos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.min.css">
+    <style>
+        body {
+            background-color: #eeeeee;
+        }
+        main {
+            max-width: 700px;
+            margin: auto;
+            padding: 10px;
+            background-color: white;
+        }
+        h1 {
+            text-align: center;
+            color: #22bb5b;
+        }
+        #inpText {
+            background-color: whitesmoke;
+            font-size: 1.2rem; /* 1.2 x vanlig text størrelse */
+            padding: 4px;
+        }
+        #todolist > article {
+            display: grid;
+            grid-template-columns: 1fr auto;
+        }
+        .lblDelete {
+            font-weight: bold;
+            padding-right: 5px;
+            padding-left: 5px;
+            opacity: 0.5;
+        }
+        .lblDelete:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+
+        <h1>TODOS</h1>
+        <input type="text" id="inpTekst" placeholder="Hva må du huske?" autofocus>
+        <section id="todolist">
+
+        </section>
+
+    </main>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDW8OtiBXkhUSeKbtxxd78R_WX5neV7iSw",
+            authDomain: "leggo-it1-databaser.firebaseapp.com",
+            databaseURL: "https://leggo-it1-databaser.firebaseio.com",
+            projectId: "leggo-it1-databaser",
+            storageBucket: "leggo-it1-databaser.appspot.com",
+            messagingSenderId: "1059380992263"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <script>
+        const inpTekst = document.getElementById("inpTekst");
+        const todolist = document.getElementById("todolist");
+
+        const db = firebase.database();
+        const todos = db.ref("todos");
+
+        function lagreTodo() {
+            todos.push({
+                tekst: inpTekst.value,
+                done: false
+            });
+            inpTekst.value = "";
+        }
+        function slett(key) {
+            const todo = todos.child(key);
+            todo.remove(); //sletter todo fra databasen
+            // referanse til html element som skal slettes
+            const todoSomSkalSlettes = document.getElementById(key);
+            //fjerner det fra section med id "todolist"
+            todolist.removeChild(todoSomSkalSlettes);
+        }
+
+        function visTodo(snap) {
+            const todo = snap.val();
+            const key = snap.key; /* primærnøkkelen */
+            todolist.innerHTML += `
+            <article id="${key}">
+                <label>${todo.tekst}</label>
+                <label class="lblDelete" onclick="slett('${key}')">X</label>
+            </article>
+            `;
+        }
+
+        inpTekst.onchange = lagreTodo;
+        todos.on("child_added", visTodo);
+    </script>
+</body>
+</html>

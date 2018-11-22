@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS.kampen</title>
+    <style>
+        * {
+            transition: 1s;
+        }
+        #minCSS {
+            font-family: sans-serif;
+            font-size: 16px;
+            padding: 8px;
+            width: 400px;
+            height: 350px;
+            background-color: #222222;
+            color: goldenrod;
+        }
+    </style>
+    <style id="styleElement"></style>
+</head>
+<body>
+
+
+    <textarea id="minCSS"></textarea>
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDW8OtiBXkhUSeKbtxxd78R_WX5neV7iSw",
+            authDomain: "leggo-it1-databaser.firebaseapp.com",
+            databaseURL: "https://leggo-it1-databaser.firebaseio.com",
+            projectId: "leggo-it1-databaser",
+            storageBucket: "leggo-it1-databaser.appspot.com",
+            messagingSenderId: "1059380992263"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script>
+        let db = firebase.database();
+        let stil =db.ref("stil");
+
+        let styleElement = document.getElementById("styleElement");
+        let minCSS = document.getElementById("minCSS");
+
+        function endreCSS() {
+            stil.set(minCSS.value);
+        }
+        function endreSide(snap) {
+            styleElement.innerHTML = snap.val();
+            minCSS.value = snap.va();
+        }
+        minCSS.oninput = endreCSS;
+        stil.on("value", endreSide)
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>The Chat</title>
+    <style>
+        body {
+            background-color: #222222;
+        }
+        p {
+            color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <input type="text" placeholder="Hva mener du?" id="inpMelding">
+    </header>
+    <main id="main"></main>
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDW8OtiBXkhUSeKbtxxd78R_WX5neV7iSw",
+            authDomain: "leggo-it1-databaser.firebaseapp.com",
+            databaseURL: "https://leggo-it1-databaser.firebaseio.com",
+            projectId: "leggo-it1-databaser",
+            storageBucket: "leggo-it1-databaser.appspot.com",
+            messagingSenderId: "1059380992263"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script>
+
+        const inpMelding = document.getElementById("inpMelding");
+        const main = document.getElementById("main");
+
+        const db = firebase.database();
+        const meldinger = db.ref("meldinger");
+
+        function lagreMelding() {
+            meldinger.push(inpMelding.value);
+            inpMelding.value = "";
+        }
+
+        function visMelding(snap) {
+            const melding = snap.val();
+            main.innerHTML = `<p>${melding}</p>` + main.innerHTML;
+        }
+
+        inpMelding.onchange = lagreMelding;
+        meldinger.on("child_added", visMelding)
+    </script>
+</body>
+</html>

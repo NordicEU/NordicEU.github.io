@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tidtager</title>
+</head>
+<body>
+
+    <h1 id="visTid">00:00:00</h1>
+
+    <script>
+        function bliDag() {
+            document.body.style.backgroundColor = "yellow";
+            setTimeout(bliNatt, 1000)
+        }
+
+        function bliNatt() {
+            document.body.style.backgroundColor = "black";
+            setTimeout(bliDag, 3000);
+        }
+
+        //Venter 3sek, så starter vi funksjonen
+        setTimeout(bliNatt, 3000);
+    </script>
+
+</body>
+</html>
