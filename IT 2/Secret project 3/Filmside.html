@@ -9,9 +9,14 @@
             grid-gap: 15px;
             grid-template-columns: repeat(6, 1fr);
             padding: 70px;
-            max-width: 900px;
             text-align: center;
 
+        }
+        #genreList {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        main > section > img {
+            max-height: 125px;
         }
         .row-1 {  grid-row: span 1;  }
         .row-2 {  grid-row: span 2;  }
@@ -31,23 +36,41 @@
 <img src="">
 
     <main>
+
+
         <h1 class="row-1 col-6">Filmside plus logo</h1>
-        <h3 class="row-1 col-6">Make your favourite movie list</h3>
-        <input type="text" id="inpListe" class="row-1 col-4">
-        <button id="filmbtn" class="row-1 col-2">Done?</button>
-    <h3 class="row-1 col-4">Choose your favourite genre</h3>
-    <section id="filmListe" class="row-3 col-2">
-        <article>Andre´s svar</article>
-    </section>
-    <img src="" class="col-1 row-1" id="action">
-    <img src="" class="col-1 row-1" id="comedy">
-    <img src="" class="col-1 row-1" id="crime">
-    <img src="" class="col-1 row-1" id="drama">
-    <img src="" class="col-1 row-1" id="horror">
-    <img src="" class="col-1 row-1" id="scifi">
-    <img src="" class="col-1 row-1" id="war">
-    <img src="" class="col-1 row-1" id="western">
-</main>
+        <section id="makeList" class="col-6 row-2">
+
+            <h3 class="row-1 col-6">Make your favourite movie list</h3>
+
+            <input type="text" id="inpListe" class="row-1 col-4">
+
+            <button id="filmbtn" class="row-1 col-1">Add movie</button>
+
+            <button id="seListe" class="row-1 col-1">Done?</button>
+        </section>
+
+        <h3 class="row-1 col-4">Choose your favourite genre</h3>
+
+        <section id="genreAns" class="row-3 col-2">
+
+            <article>Andre´s svar</article>
+
+        </section>
+
+        <section id="genreList" class="col-4 row-2">
+            <img src="action.jpg" class="col-1 row-1" id="action">
+            <img src="comedy.jpg" class="col-1 row-1" id="comedy">
+            <img src="Gangster.jpg" class="col-1 row-1" id="crime">
+            <img src="romantic.jpg" class="col-1 row-1" id="drama">
+            <img src="horror.jpg" class="col-1 row-1" id="horror">
+            <img src="rename.jpg" class="col-1 row-1" id="scifi">
+            <img src="war.jpg" class="col-1 row-1" id="war">
+            <img src="western.jpg" class="col-1 row-1" id="western">
+        </section>
+
+
+    </main>
 
 
 <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
@@ -69,8 +92,125 @@
     const db = firebase.database();
     const genre = db.ref("genre");
 
+    let inpliste = document.getElementById("inpListe");
+    let filmer = [];
+    let filmbtn = document.getElementById("filmbtn");
+    const seListe = document.getElementById("seListe");
+    let makeList = document.getElementById("makeList");
+    const genreAns = document.getElementById("genreAns");
 
 
+    var genreList = document.getElementById("genreList");
+    const action = document.getElementById("action");
+    const comedy = document.getElementById("comedy");
+    const crime = document.getElementById("crime");
+    const drama = document.getElementById("drama");
+    const horror = document.getElementById("horror");
+    const scifi = document.getElementById("scifi");
+    const war = document.getElementById("war");
+    const western = document.getElementById("western");
+
+
+    filmbtn.onclick = () => {
+        filmer.push(inpliste.value);
+    };
+    seListe.onclick = function () {
+      makeList.innerHTML = `<section>${filmer}</section>`
+    };
+
+
+    action.onclick = visBildeA;
+    function visBildeA() {
+        genreList.innerHTML = `<img src="action.jpg">`;
+        genre.push({
+            tekst: "Action",
+            done: false
+        });
+        action.style.Width = "1000px";
+    }
+
+    comedy.onclick = visBildeC;
+    function visBildeC() {
+        genreList.innerHTML = `<img src="comedy.jpg">`;
+        genre.push({
+            tekst: "Comedy",
+            done: false
+        });
+        /* css hjelp */
+    }
+
+    crime.onclick = visBildeCr;
+    function visBildeCr() {
+        genreList.innerHTML = `<img src="Gangster.jpg">`;
+        genre.push({
+            tekst: "Gangster",
+            done: false
+        });
+        /* css hjelp */
+    }
+
+    drama.onclick = visBildeD;
+    function visBildeD() {
+        genreList.innerHTML = `<img src="romantic.jpg">`;
+        genre.push({
+            tekst: "Romantic",
+            done: false
+        });
+        /* css hjelp */
+    }
+
+    horror.onclick = visBildeH;
+    function visBildeH() {
+        genreList.innerHTML = `<img src="horror.jpg">`;
+        genre.push({
+            tekst: "Horror",
+            done: false
+        });
+        /* css hjelp */
+    }
+
+    scifi.onclick = visBildeS;
+    function visBildeS() {
+        genreList.innerHTML = `<img src="rename.jpg">`;
+        genre.push({
+            tekst: "Scif-fi",
+            done: false
+        });
+        /* css hjelp */
+    }
+
+    war.onclick = visBildeW;
+    function visBildeW() {
+        genreList.innerHTML = `<img src="war.jpg">`;
+        genre.push({
+            tekst: "War",
+            done: false
+        });
+        /* css hjelp */
+    }
+
+    western.onclick = visBildeWe;
+    function visBildeWe() {
+        genreList.innerHTML = `<img src="western.jpg">`;
+        genre.push({
+            tekst: "Western",
+            done: false
+        });
+        /* css hjelp */
+    }
+
+    function visGenre(snap) {
+        const genre = snap.val();
+        const key = snap.key;
+        genreAns.innerHTML += `
+            <article id="${key}">
+                <label>${genre.tekst}</label>
+            </article>
+            `;
+    }
+
+
+    genre.on("child_added", visGenre);
 
 </script>
 </body>
