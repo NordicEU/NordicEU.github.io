@@ -3,20 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="http://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
     <style>
+        body {
+            padding: 0;
+            background-color: mintcream;
+            font-family: Lato, sans-serif;
+        }
         main {
             display: grid;
             grid-gap: 15px;
             grid-template-columns: repeat(6, 1fr);
             padding: 70px;
             text-align: center;
-
+        }
+        body > header {
+            padding: 0;
+            background-color: #5A666B;
+            width: auto;
+        }
+        body > header > nav {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        }
+        body > header > nav > a {
+            text-align: center;
+            padding: 10px;
+            color: #222222;
+            transition-duration: 0.4s;
+        }
+        body > header > nav > a:hover {
+            background-color: whitesmoke;
+            color: black;
+        }
+        header > nav > a > img {
+            width: 70px;
+            height: 70px;
         }
         #genreList {
             grid-template-columns: repeat(4, 1fr);
         }
         main > section > img {
-            max-height: 125px;
+            max-height: 148px;
+        }
+        main > section > img:hover {
+            cursor: pointer;
+        }
+        h1 {
+            font-family: Corben, sans-serif;
+        }
+        article {
+            padding: 15px;
+            font-size: 15px;
+        }
+        #tittel3 {
+            font-size: 22px;
+        }
+        input {
+            font-size: 20px;
+            border: 2px solid dimgrey;
+            width: 80%;
+            border-radius: 4px;
+            outline: none;
+        }
+        #darkbtn {
+            border: none;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            background-color: #5A666B;
+            color: black;
+            font-size: 25px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            outline: none;
+        }
+        #darkbtn:hover {
+            background-color: whitesmoke;
+            color: black;
+            border: 2px solid #555555;
+        }
+        #filmbtn {
+            border: none;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            background-color: whitesmoke;
+            color: black;
+            font-size: 15px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+
+            outline: none;
+        }
+        #filmbtn:hover {
+            background-color: dimgrey;
+            color: whitesmoke;
+        }
+        #seListe {
+            border: none;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            background-color: whitesmoke;
+            color: black;
+            font-size: 15px;
+            transition-duration: 0.4s;
+
+            cursor: pointer;
+            outline: none;
+        }
+        #seListe:hover {
+            background-color: dimgrey;
+            color: whitesmoke;
         }
         .row-1 {  grid-row: span 1;  }
         .row-2 {  grid-row: span 2;  }
@@ -33,12 +135,20 @@
     </style>
 </head>
 <body>
-<img src="">
+    <header>
+        <nav>
+            <a href="Filmside.html"><img src="../../IT1/Secretproject/I love myself.png" ></a>
+            <a href="#"><img src="../../IT1/Secretproject/I%20love%20myself%202.png"></a>
+            <a href="#"><img src="../../IT1/Secretproject/I%20love%20myself%203.png"></a>
+            <a href="#"><img src="../../IT1/Secretproject/I%20love%20myself%204.png"></a>
+            <button id="darkbtn">DARK MODE</button>
+        </nav>
+    </header>
 
     <main>
 
 
-        <h1 class="row-1 col-6">Filmside plus logo</h1>
+        <h1 class="row-1 col-6">MovieFan.com</h1>
         <section id="makeList" class="col-6 row-2">
 
             <h3 class="row-1 col-6">Make your favourite movie list</h3>
@@ -50,15 +160,15 @@
             <button id="seListe" class="row-1 col-1">Done?</button>
         </section>
 
-        <h3 class="row-1 col-4">Choose your favourite genre</h3>
+        <h3 class="row-1 col-5">Choose your favourite genre</h3>
 
-        <section id="genreAns" class="row-3 col-2">
+        <section id="genreAns" class="row-3 col-1">
 
-            <article>Andre´s svar</article>
+            <article id="tittel3">Hva andre har svart</article>
 
         </section>
 
-        <section id="genreList" class="col-4 row-2">
+        <section id="genreList" class="col-5 row-2">
             <img src="action.jpg" class="col-1 row-1" id="action">
             <img src="comedy.jpg" class="col-1 row-1" id="comedy">
             <img src="Gangster.jpg" class="col-1 row-1" id="crime">
@@ -98,6 +208,8 @@
     const seListe = document.getElementById("seListe");
     let makeList = document.getElementById("makeList");
     const genreAns = document.getElementById("genreAns");
+    const darkbtn = document.getElementById("darkbtn");
+    
 
 
     var genreList = document.getElementById("genreList");
@@ -121,82 +233,83 @@
 
     action.onclick = visBildeA;
     function visBildeA() {
-        genreList.innerHTML = `<img src="action.jpg">`;
+        genreList.innerHTML = `<img id="action2" src="action.jpg">`;
         genre.push({
             tekst: "Action",
             done: false
         });
-        action.style.Width = "1000px";
+
+        document.getElementById("action2").style.maxHeight = "500px";
     }
 
     comedy.onclick = visBildeC;
     function visBildeC() {
-        genreList.innerHTML = `<img src="comedy.jpg">`;
+        genreList.innerHTML = `<img id="comedy2" src="comedy.jpg">`;
         genre.push({
             tekst: "Comedy",
             done: false
         });
-        /* css hjelp */
+        document.getElementById("comedy2").style.maxHeight = "500px";
     }
 
     crime.onclick = visBildeCr;
     function visBildeCr() {
-        genreList.innerHTML = `<img src="Gangster.jpg">`;
+        genreList.innerHTML = `<img id="Gangster2" src="Gangster.jpg">`;
         genre.push({
             tekst: "Gangster",
             done: false
         });
-        /* css hjelp */
+        document.getElementById("Gangster2").style.maxHeight = "500px";
     }
 
     drama.onclick = visBildeD;
     function visBildeD() {
-        genreList.innerHTML = `<img src="romantic.jpg">`;
+        genreList.innerHTML = `<img id="romance" src="romantic.jpg">`;
         genre.push({
             tekst: "Romantic",
             done: false
         });
-        /* css hjelp */
+        document.getElementById("romance").style.maxHeight = "500px";
     }
 
     horror.onclick = visBildeH;
     function visBildeH() {
-        genreList.innerHTML = `<img src="horror.jpg">`;
+        genreList.innerHTML = `<img id="horror2" src="horror.jpg">`;
         genre.push({
             tekst: "Horror",
             done: false
         });
-        /* css hjelp */
+        document.getElementById("horror2").style.maxHeight = "500px";
     }
 
     scifi.onclick = visBildeS;
     function visBildeS() {
-        genreList.innerHTML = `<img src="rename.jpg">`;
+        genreList.innerHTML = `<img id="scifi2" src="rename.jpg">`;
         genre.push({
             tekst: "Scif-fi",
             done: false
         });
-        /* css hjelp */
+        document.getElementById("scifi2").style.maxHeight = "500px";
     }
 
     war.onclick = visBildeW;
     function visBildeW() {
-        genreList.innerHTML = `<img src="war.jpg">`;
+        genreList.innerHTML = `<img id="war2" src="war.jpg">`;
         genre.push({
             tekst: "War",
             done: false
         });
-        /* css hjelp */
+        document.getElementById("war2").style.maxHeight = "500px";
     }
 
     western.onclick = visBildeWe;
     function visBildeWe() {
-        genreList.innerHTML = `<img src="western.jpg">`;
+        genreList.innerHTML = `<img id="western2" src="western.jpg">`;
         genre.push({
             tekst: "Western",
             done: false
         });
-        /* css hjelp */
+        document.getElementById("western2").style.maxHeight = "500px";
     }
 
     function visGenre(snap) {
@@ -212,6 +325,18 @@
 
     genre.on("child_added", visGenre);
 
+    darkbtn.onclick = dark;
+    function dark() {
+        if (document.body.style.backgroundColor === "mintcream") {
+
+            document.body.style.backgroundColor = "#142634";
+            document.body.style.color = "#BDC7C1";
+        }
+        else {
+            document.body.style.backgroundColor = "mintcream";
+            document.body.style.color = "black";
+        }
+    }
 </script>
 </body>
 </html>
