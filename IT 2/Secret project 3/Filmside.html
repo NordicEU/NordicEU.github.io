@@ -56,6 +56,16 @@
             padding: 15px;
             font-size: 15px;
         }
+        #share-buttons img {
+            width: 35px;
+            padding: 5px;
+            border: 0;
+            box-shadow: 0 0;
+            display: inline;
+        }
+        #makeList {
+            font-size: 22px;
+        }
         #tittel3 {
             font-size: 22px;
         }
@@ -153,7 +163,7 @@
 
             <h3 class="row-1 col-6">Make your favourite movie list</h3>
 
-            <input type="text" id="inpListe" class="row-1 col-4">
+            <input placeholder="Write your favourite movie" type="text" id="inpListe" class="row-1 col-4">
 
             <button id="filmbtn" class="row-1 col-1">Add movie</button>
 
@@ -227,7 +237,11 @@
         filmer.push(inpliste.value);
     };
     seListe.onclick = function () {
-      makeList.innerHTML = `<section>${filmer}</section>`
+        makeList.innerHTML = filmer.join(" | ") + `<div id="share-buttons">
+        <a href="http://www.facebook.com/sharer.php?u=https://NordicEU.github.io/IT%202/Secret%20project%203/Filmside.html" target="_blank"><img src="somacro/facebook.png" alt="Facebook" /></a>
+        <a href="https://plus.google.com/share?url=https://NordicEU.github.io/IT%202/Secret%20project%203/Filmside.html" target="_blank"><img src="somacro/google.png" alt="Google" /></a></div>`;
+        makeList.style.color = "#D48872"
+      // makeList.innerHTML = `<section>${filmer}</section>`
     };
 
 
