@@ -337,7 +337,7 @@
     }
 
 
-    genre.on("child_added", visGenre);
+    genre.limitToLast(7).on("child_added", visGenre);
 
     darkbtn.onclick = dark;
     function dark() {
