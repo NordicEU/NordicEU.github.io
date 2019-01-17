@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Ferien min</title>
+    <style>
+        img {
+            width: 750px;
+            height: 519px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+<div id="slideshow"></div>
+<img id="slideimg" src="feriebilder/Japan.jpg">
+<br>
+<button id="btnLast">Last</button>
+<button id="btnNext">Next</button>
+<br>
+
+<script>
+
+
+    let ferieBilder = [
+        "feriebilder/italia.jpg",
+        "feriebilder/hawaii.jpg",
+        "feriebilder/Japan.jpg"];
+
+    let liste = ferieBilder.join("<br>");
+    document.write(liste);
+
+    const slideimg = document.getElementById("slideimg");
+
+    const btnLast = document.getElementById("btnLast");
+    const btnNext = document.getElementById("btnNext");
+
+    let bildeVelger = 0;
+    slideimg.src = ferieBilder[bildeVelger];
+    btnNext.onclick = nextImg;
+    btnLast.onclick = lastImg;
+
+    function lastImg(){
+        bildeVelger = bildeVelger - 1;
+        if (bildeVelger<0){
+            bildeVelger = ferieBilder.length-1;
+        }
+        slideimg.src = ferieBilder[bildeVelger];
+    }
+
+
+    function nextImg(){
+        bildeVelger = bildeVelger + 1;
+        if (bildeVelger>ferieBilder.length-1){
+            bildeVelger = 0;
+        }
+        slideimg.src = ferieBilder[bildeVelger];
+    }
+
+
+    function sortereBokstaver(a,b) {
+        a.toUpperCase();
+        b.toUpperCase();
+        return a < b;
+    }
+    ferieBilder.sort(sortereBokstaver);
+    const sorterTall = (a,b) => a-b;
+</script>
+
+</body>
+</html>

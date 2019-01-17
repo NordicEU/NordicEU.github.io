@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo-app</title>
+</head>
+<body>
+<form action="">
+    <label for="navn">Navn:</label>
+    <input id="navn" type="text">
+    <label for="todo">Må huskes:</label>
+    <input id="todo" type="text">
+    <button id="btn" type="submit">Send inn</button>
+</form>
+<ul id="huskeListe">
+
+</ul>
+
+<script>
+    let inputFelt = document.querySelectorAll("input");
+    let btn = document.querySelector("#btn");
+    let todos =[];
+    let huskeListe = document.querySelector("#huskeListe");
+
+    function leggTilTodo() {
+        for(let input of inputFelt){
+            todos.push(input.value);
+        }
+        huskeListe.innerHTML += "<li>" + input + "</li>";
+    }
+    btn.onclick = leggTilTodo();
+</script>
+</body>
+</html>

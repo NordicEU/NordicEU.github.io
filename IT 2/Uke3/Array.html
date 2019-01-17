@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+</head>
+<body>
+
+<ul id="filmListe">
+    <li>hei</li>
+</ul>
+
+<script>
+
+    let filmListe = document.getElementById("filmListe");
+    let filmer = ["Ben Hur","Shawshank redemption","Inglorious Bastards"];
+
+    filmer.unshift("Oslo 11 august");//legger til en film først i array
+    filmer.pop(); // tar bort siste elementet i arrayen
+    filmer.shift();// tar bort første elementet i arrayen
+    filmer.splice(1,2);// tar bort den du velger også hvor mange etter det
+    filmer.splice(1,1,"The shape of water");//bytter ut
+
+    for(let film of filmer){
+        console.log(film);
+        filmListe.innerHTML += "<li>" + film + "</li>";
+    }
+    /*
+    for(let i = 0; 1 < 3; i++){
+        console.log(filmer[i]);
+    }
+    */
+</script>
+
+</body>
+</html>
