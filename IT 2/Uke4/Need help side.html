@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Help page</title>
+</head>
+<body>
+<h1 id="tittel">Do you need help?</h1>
+
+<input id="name" type="text" placeholder="Name">
+<input id="problem" type="text" placeholder="Problem">
+<button id="btn">Send in</button>
+<h1>Venteliste</h1>
+<div id="divProblems"></div>
+
+
+<script>
+    const btn = document.getElementById("btn");
+    const inpProblem = document.getElementById("problem");
+    const inpName = document.getElementById("name");
+    const divProblems = document.getElementById("divProblems");
+
+
+    let problems = [];
+
+    btn.onclick = function () {
+        problems.push({
+            name: inpName.value,
+            problem: inpProblem.value
+        });
+        for(let problem of problems){
+            divProblems.innerHTML += `<p>Name: ${problem.name}</p>
+                                      <p>Problem: ${problem.problem}</p>`
+        }
+    }
+
+</script>
+</body>
+</html>
