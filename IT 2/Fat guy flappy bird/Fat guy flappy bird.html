@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Fat guy flappy fat</title>
+    <style>
+        canvas {
+            display: block;
+            margin: auto;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<canvas id="canvas" width="288" height="512"></canvas>
+
+<script>
+  // HUSK Å LEGGE TIL FLERE BACKGRUNDER
+
+    let cvs = document.getElementById("canvas");
+    let ctx = cvs.getContext("2d");
+
+    // laste inn bilder
+
+    let fat = new Image();
+    let bg = new Image();
+    let gulrot = new Image();
+    let gulrot2 = new Image();
+    let fart = new Image();
+
+    fart.src = "fart.png";
+    fat.src = "fat.png";
+    bg.src = "bg.png";
+    gulrot.src = "yeet.png";
+    gulrot2.src = "yeet2.png";
+
+
+    // variabler
+
+    let gap = 130;
+    let constant;
+
+    let bX = 10;
+    let bY = 150;
+    let fallSpeed = 0;
+
+    let gravity = .2;
+
+    let score = 0;
+
+
+    // bevegelsesknapp
+
+    document.addEventListener("keydown",moveUp);
+
+    function moveUp(){
+        if(fallSpeed > 0)
+            fallSpeed = 0;
+
+        fallSpeed += -3;
+
+
+        // lyd filer
+        let audio = new Audio();
+        audio.src = "fart-01.mp3";
+        audio.play();
+    }
+
+    // gulrot kordinater
+
+    let  gulrotA= [];
+
+    gulrotA[0] = {
+        x : cvs.width,
+        y : 0
+    };
+
+    // tegning av bildene
+
+    function draw(){
+        // bakgrunn
+        ctx.drawImage(bg,0,0);
+
+        //
+        for(let i = 0; i < gulrotA.length; i++){
+
+            constant = gulrot.height+gap;
+            ctx.drawImage(gulrot,gulrotA[i].x,gulrotA[i].y);
+            ctx.drawImage(gulrot2,gulrotA[i].x,gulrotA[i].y+constant);
+
+
+            gulrotA[i].x-=4;
+
+            if(gulrotA[i].x == 56){
+                gulrotA.push({
+                    x : cvs.width,
+                    y : Math.floor(Math.random()*gulrot.height)-gulrot.height
+                });
+            }
+
+            // sjekkkollisjon
+
+            if(bX + fat.width >= gulrotA[i].x+25.5 && bX <= gulrotA[i].x + gulrot.width-25.5
+                && (bY <= gulrotA[i].y + gulrot.height || bY+fat.height >= gulrotA[i].y+constant)
+                || bY + fat.height >=  cvs.height) {
+                location.reload(); // restart
+            }
+
+
+            if(gulrotA[i].x == 12){
+                score++;
+
+            }
+
+
+        }
+        //skifting av bakgrunn
+        if (score > 100){
+            bg.src = "bg100.jpg"
+        }
+        else if(score > 90){
+            bg.src = "bg90.jpg"
+        }
+        else if(score > 80){
+            bg.src = "bg80.jpg"
+        }
+        else if(score > 70){
+            bg.src = "bg60.png"
+        }
+        else if(score > 60){
+            bg.src = "bg10.png"
+        }
+        else if(score > 50){
+            bg.src = "bg11.jpg"
+        }
+        else if(score > 40){
+            bg.src = "bg9.jpg"
+        }
+        else if(score > 30){
+            bg.src = "bg8.jpg"
+        }
+        else if(score > 20){
+            bg.src = "bg7.gif"
+        }
+        else if(score > 10){
+            bg.src = "bg2.jpg"
+        }
+
+
+
+
+        // spilleren
+        ctx.drawImage(fat,bX,bY);
+
+        //fjerten
+        if (fallSpeed < 0) {
+            ctx.drawImage(fart, bX, bY + 40);
+        }
+
+        fallSpeed += gravity;
+        bY += fallSpeed;
+
+        ctx.fillStyle = "#fff";
+        ctx.font = "20px Verdana";
+        ctx.fillText("Score : "+score,10,cvs.height-20);
+
+        requestAnimationFrame(draw);
+
+    }
+
+    draw();
+
+</script>
+</body>
+</html>
