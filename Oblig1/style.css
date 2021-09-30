@@ -1,0 +1,218 @@
+/*Global CSS properties to keep the look of the web pages the same*/
+html {
+  scroll-behavior: smooth;
+}
+body, html {
+  font: 400 15px/1.8 "Lato", sans-serif;
+  margin: 0;
+}
+ul {
+  margin: 0;
+  padding: 0px;
+}
+li{
+  display: inline;
+  margin: 20px;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+  padding: 18px;
+  font-size: 17px;
+  letter-spacing: 5px;
+}
+h1, h2, h3 {
+  text-align: center;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+/*Global ids*/
+#split {
+  background-color: slategray;
+}
+/*Home ids*/
+#tema2 {
+  color: #777;
+  background-color:white;
+  text-align:center;
+  padding:50px 80px;
+  text-align: justify;
+}
+/*Resume ids*/
+#resume { 
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 50px "Lato", sans-serif;
+  color: #111;
+}
+/*portofolio ids*/
+#astroBuddy {
+  text-decoration: none;
+  font-size: 1em;
+  letter-spacing: normal;
+  padding: 2px;
+}
+#astroYouT {
+  text-decoration: none;
+  font-size: 1em;
+  letter-spacing: normal;
+  padding: 2px;
+  color: #111;
+}
+/*Global classes*/
+div.heading {
+  background-color: slategray;
+  padding: 10px;
+  text-transform: uppercase;
+}
+div.heading > h1 {
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 5px;
+  margin: 0;
+}
+li.heading {
+  display: inline;
+  margin-right: 10px;
+}
+.card {
+  background: #f7f7f7;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 7px 7px 10px 3px darkgrey;
+}
+.card > div {
+  vertical-align: middle;
+  display: inline-block;
+
+}
+.card > div.left,
+.card > div.right {
+  height: 100%;
+  width: 45%;
+}
+@media (max-width: 850px) {
+  div.heading > ul > li > a {
+    margin: 0px;
+    padding: 2px;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+}
+/*Home classes*/
+.bg1, .bg2, .bg3{
+  position: relative;
+  opacity: 0.65;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg1 {
+  background-image: url(images/chillAstro.jpg);
+  min-height: 100%;  
+}
+.bg2 {
+  background-image: url(images/workingAstro.jpg);
+  min-height: 400px;
+}
+.bg3 {
+  background-image: url(images/aboutAstro.jpg);
+  min-height: 400px;
+}
+.tema {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+.tema span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+/*Introduction classes*/
+div.intro {
+  background-color: slategray;
+}
+div.hobby{
+  position: relative;
+  text-align: center;
+}
+div.hobby > ul {
+  columns: 2;
+  width: min-content;
+  display: inline-block;
+}
+.quote {
+  background-color: slategray;
+}
+.zoom {
+  transition: transform .2s;
+}
+.zoom:hover {
+  transform: scale(1.5);
+  -webkit-transform: scale(1.5); /* for safari brukere*/
+}
+@media (max-width: 768px) {
+  div.hobby > ul {
+    columns: 1;
+  }
+}
+/*resume classes*/
+.card2 {
+  background: #f7f7f7;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 7px 7px 10px 3px darkgrey;
+}
+.card2 > div {
+  vertical-align: middle;
+  display: inline-block;
+
+}
+.card2 > div.left,
+.card2 > div.right {
+  height: 100%;
+  width: 40%;
+  margin: 20px;
+}
+.lister {
+  background-color: slategray;
+}
+* {box-sizing:border-box}
+
+/* Container for skill bars in resume*/
+.container {
+     width: 100%; 
+      background-color: #ddd;
+}
+.skills {
+      text-align: right;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      color: white;
+}
+.astronaut {width: 90%; background-color: #04AA6D;}
+.mechEng {width: 80%; background-color: #2196F3;}
+.breath {width: 65%; background-color: #f44336;}
+.loyal {width: 50%; background-color: #808080;}
+.english {width: 99%; background-color: #04AA6D;}
+.russian {width: 94%; background-color: #04AA6D;}
+.french {width: 72%; background-color: #d1bb40;}
+.german {width: 60%; background-color: #501511;}
