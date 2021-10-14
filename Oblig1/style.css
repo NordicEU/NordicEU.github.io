@@ -100,7 +100,7 @@ li.heading {
   height: 100%;
   width: 45%;
 }
-@media (max-width: 850px) {
+@media (max-width: 1024px) {
   div.heading > ul > li > a {
     margin: 0px;
     padding: 2px;
