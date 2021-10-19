@@ -45,8 +45,23 @@ h1 {
     text-transform: uppercase;
     font: 40px "Lato", sans-serif;
     color: #111;
-  }
+}
+h2 {
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font: 30px "Lato", sans-serif;
+    color: #111;
+}
 
+  /* Ids */
+#phonePic {
+    max-width: 400px;
+    max-height: 800px;
+}
+#bytteBilde img {
+    max-height: 900px;
+    max-width: 100vw;
+}
   /* Classes */
   /*Header classes/CSS*/
 .header {
@@ -86,6 +101,11 @@ li.header {
     flex-wrap: wrap;
     padding: 0 4px;
 }
+.wireframes {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 50px 20px;
+}
 /* Create 3 equal columns that sits next to each other */
 .column {
     flex: 32%;
@@ -97,7 +117,17 @@ li.header {
     vertical-align: middle;
     width: 100%;
 }
-
+.kolonne {
+    flex: 50%;
+    max-width: 50%;
+    padding: 10px;
+}
+.kolonne img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+    height: auto;
+}
 /* Overlay text*/
 .container {
     position: relative;
@@ -145,6 +175,9 @@ picture{
 .column, .kolonne {
     flex: 100%;
     max-width: 100%;
+}
+.wireframes {
+    padding: 0px 5px 4px;
 }
 div.header > h1 {
     font-size: 20px;
