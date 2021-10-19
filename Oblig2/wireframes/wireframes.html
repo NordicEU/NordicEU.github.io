@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <title>Wireframes</title>
+    <link href = "../stylesheet.css" rel = "stylesheet">
+    <style>
+      body {
+        background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+      }
+      #bytteBilde img {
+        max-width: 500px;
+      }
+      .wireframes {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 4px;
+      }
+       .bigsize {
+         flex: 63%;
+         max-width: 63%;
+       }
+       .kolonne {
+         flex: 50%;
+         max-width: 50%;
+       }
+       .kolonne img {
+        margin-top: 8px;
+        vertical-align: middle;
+        width: 100%;
+        height: auto;
+       }
+    </style>
+    </head>
+    <body>
+      <div align = "center" class="header">
+        <h1>Sommer 2021</h1>
+        <ul>
+          <li>
+            <a href="../index.html">Home</a>
+          </li>
+          <li>
+            <a class="active" href="wireframes.html">wireframes</a>
+          </li>
+          <li>
+            <a href="../reflection/reflection.html">Reflection</a>
+          </li>
+        </ul>
+      </div>
+      <div class="wireframes">
+        <div class="kolonne">
+          <img src="../images/wireWeb.jpg" width="400px" alt="stor wireframe">
+        </div>
+        <div class="kolonne">
+          <img src="../images/wirePhone.jpg" height="400px" alt="liten wireframe">
+        </div>
+      </div>
+      
+      <picture id="bytteBilde">
+        <source media="(min-width:900px)" srcset="../images/wireWeb.jpg">
+        <img src="../images/wirePhone.jpg" alt="wireframe"> 
+      </picture>
+    </body>
+</html>
