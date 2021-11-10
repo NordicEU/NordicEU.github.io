@@ -1,0 +1,123 @@
+html {
+    scroll-behavior: smooth;
+  }
+body, html {
+  font: 400 15px/1.8 "Lato", sans-serif;
+  margin: 0;
+}
+ul {
+  margin: 0;
+  padding: 0px;
+}
+li{
+  display: inline;
+  margin: 20px;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+  padding: 18px;
+  font-size: 17px;
+  letter-spacing: 5px;
+}
+h1, h2, h3 {
+  text-align: center;
+}
+a {
+  text-decoration: none;
+}
+h1{
+    font-family: cheap-pine, sans-serif;
+    font-weight: 400;
+    font-size: 700%;
+    color: darkslategray;
+    font-style: normal;
+    margin: 0px;
+}
+
+ul.info {
+  text-align: center;
+}
+ul.info li{
+    display: inline;
+    margin-right: 10px;
+    border-width: 2x;
+    border: 50%;
+    border-top: 2px;
+    padding: 15px;
+    font-family: 'Bebas Neue', cursive;
+    /*list-style-position: inside;*/
+}
+
+
+.nav > ul > li{
+    display: inline-block;
+    position: relative;
+}
+
+.nav > ul > li > a{
+    color: black;
+}
+
+
+.nav > ul > li > a:hover{
+    border: 3px solid darkslategray;
+    margin: -2px;
+    color: darkslategray;
+}
+.nav a.active {
+    background-color: darkslategray;
+    color: white;
+}
+.nav a.active:hover {
+  color: white;
+}
+
+/*13:18*/
+div.nav{
+  border: 1px solid black;
+}
+/*Home ids*/
+#tema2 {
+  color: #777;
+  background-color:white;
+  text-align:center;
+  padding:50px 80px;
+  text-align: justify;
+}
+/*Home classes*/
+.bg1, .bg2, .bg3{
+  position: relative;
+  opacity: 0.65;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg1 {
+  background-image: url(images/walkingStudent.jpg);
+  min-height: 100%;  
+}
+.bg2 {
+  background-image: url(images/Technical-Innovation.png);
+  min-height: 400px;
+}
+.bg3 {
+  background-image: url(images/fun.jpg);
+  min-height: 400px;
+}
+.tema {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+.tema span.border {
+  background-color: darkslategray;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
