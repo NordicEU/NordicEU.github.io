@@ -1,12 +1,179 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Grouping elements with HTML | Activity | HTML and CSS course</title>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Fat guy flappy fat</title>
+    <style>
+        canvas {
+            display: block;
+            margin: auto;
+        }
+
+    </style>
 </head>
 <body>
-    <img src="Images/studentlife=hard.jpg" alt="">
+
+
+<canvas id="canvas" width="288" height="512"></canvas>
+
+<script>
+  // HUSK Å LEGGE TIL FLERE BACKGRUNDER
+
+    let cvs = document.getElementById("canvas");
+    let ctx = cvs.getContext("2d");
+
+    // laste inn bilder
+
+    let fat = new Image();
+    let bg = new Image();
+    let gulrot = new Image();
+    let gulrot2 = new Image();
+    let fart = new Image();
+
+    fart.src = "Images/fart.png";
+    fat.src = "Images/fat.png";
+    bg.src = "Images/bg.png";
+    gulrot.src = "Images/yeet.png";
+    gulrot2.src = "Images/yeet2.png";
+
+
+    // variabler
+
+    let gap = 130;
+    let constant;
+
+    let bX = 10;
+    let bY = 150;
+    let fallSpeed = 0;
+
+    let gravity = .15;
+
+    let score = 0;
+
+
+    // bevegelsesknapp
+
+    document.addEventListener("keydown",moveUp);
+
+    function moveUp(){
+        if(fallSpeed > 0){
+            fallSpeed = 0;
+        }
+        fallSpeed += -3.5;
+
+
+        // lyd filer
+        let audio = new Audio();
+        audio.src = "Images/fart-01.mp3";
+        //audio.play();
+    }
+
+    // gulrot kordinater
+
+    let  gulrotA= [];
+
+    gulrotA[0] = {
+        x : cvs.width,
+        y : 0
+    };
+
+    // tegning av bildene
+
+    function draw(){
+        // bakgrunn
+        ctx.drawImage(bg,0,0);
+
+        //
+        for(let i = 0; i < gulrotA.length; i++){
+
+            constant = gulrot.height+gap;
+            ctx.drawImage(gulrot,gulrotA[i].x,gulrotA[i].y);
+            ctx.drawImage(gulrot2,gulrotA[i].x,gulrotA[i].y+constant);
+
+
+            gulrotA[i].x-=2;
+
+            if(gulrotA[i].x == 56){
+                gulrotA.push({
+                    x : cvs.width,
+                    y : Math.floor(Math.random()*gulrot.height)-gulrot.height
+                });
+            }
+
+            // sjekkkollisjon
+
+            if(bX + fat.width >= gulrotA[i].x+25.5 && bX <= gulrotA[i].x + gulrot.width-25.5
+                && (bY <= gulrotA[i].y + gulrot.height || bY+fat.height >= gulrotA[i].y+constant)
+                || bY + fat.height >=  cvs.height) {
+                location.reload(); // restart
+            }
+            
+            
+
+            if(gulrotA[i].x == 12){
+                score++;
+
+            }
+
+
+        
+          //skifting av bakgrunn
+          if (score > 100){
+              bg.src = "Images/bg100.jpg"
+          }
+          else if(score > 90){
+              bg.src = "Images/bg90.jpg"
+          }
+          else if(score > 80){
+              bg.src = "Images/bg80.jpg"
+          }
+          else if(score > 70){
+              bg.src = "Images/bg60.png"
+          }
+          else if(score > 60){
+              bg.src = "Images/bg10.png"
+          }
+          else if(score > 50){
+              bg.src = "Images/bg11.jpg"
+          }
+          else if(score > 40){
+              bg.src = "Images/bg9.jpg"
+          }
+          else if(score > 30){
+              bg.src = "Images/bg8.jpg"
+          }
+          else if(score > 20){
+              bg.src = "Images/bg7.gif"
+          }
+          else if(score > 10){
+              bg.src = "Images/bg2.jpg"
+          }
+        }
+
+
+
+
+        // spilleren
+        ctx.drawImage(fat,bX,bY);
+
+        //fjerten
+        if (fallSpeed < 0) {
+            ctx.drawImage(fart, bX, bY + 40);
+        }
+
+        fallSpeed += gravity;
+        bY += fallSpeed;
+
+        ctx.fillStyle = "#fff";
+        ctx.font = "20px Verdana";
+        ctx.fillText("Score : "+score,10,cvs.height-20);
+
+        requestAnimationFrame(draw);
+
+    }
+
+    draw();
+
+</script>
 </body>
 </html>
