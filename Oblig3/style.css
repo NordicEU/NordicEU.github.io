@@ -102,15 +102,15 @@ div.nav{
   background-size: cover;
 }
 .bg1 {
-  background-image: url(Images/walkingStudent.jpg);
+  background-image: url(images/walkingStudent.jpg);
   min-height: 100%;  
 }
 .bg2 {
-  background-image: url(Images/Technical-Innovation.png);
+  background-image: url(images/Technical-Innovation.png);
   min-height: 400px;
 }
 .bg3 {
-  background-image: url(Images/fun.jpg);
+  background-image: url(images/fun.jpg);
   min-height: 400px;
 }
 .tema {
@@ -127,4 +127,125 @@ div.nav{
   padding: 18px;
   font-size: 25px;
   letter-spacing: 10px;
+}
+
+.footer{
+  padding-top: 10px;
+  margin-top: 20px;
+}
+
+
+.footer-col{
+  width: 25%;
+  padding: 0 15px;
+  padding-left: 15px;
+  padding-right: 30px;
+
+}
+
+.footer-col h4{
+  font-family: 'Bebas Neue', cursive;
+  color: white;
+  text-transform: capitalize;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  margin-bottom: 30px;
+  font-weight: 500;
+  position: relative;
+}
+
+.footer-col h4::before{
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: orange;
+  height: 2px;
+  align-self: auto;
+  box-sizing: border-box;
+  width: 70px;
+
+}
+
+
+.footer-col ul li:not(:last-child){
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a{
+  font-size: 16px;
+  text-transform: capitalize;
+  text-decoration: none;
+  font-weight: 300;
+  display: block;
+}
+
+.footer-col ul li a:hover{
+  color: white;
+  padding-left: 8px;
+
+}
+
+.footer-col > .social-links > a{
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 3px 3px 3px 3px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.5 ease;
+  padding: 10px;
+}
+
+.nedre{
+  padding-right: 150px;
+
+}
+
+.footer-col .social-links a:hover{
+  color: #24262b;
+  background-color: #ffffff;
+
+
+}
+.footer{
+  background-color: rgb(183, 184, 155);
+
+}
+.sosiale-links{
+  justify-content: center;
+  text-align: center;
+  justify-items: center;
+}
+.konteiner{
+  max-width: 1170px;
+  margin: auto;
+  padding-top: 20px;
+  font-family:'Bebas Neue', cursive;
+}
+.row1{
+  display: flex;
+  flex-wrap: wrap;
+}
+@media (max-width: 915px) {
+  div.nav > ul > li > a {
+    margin: 0px;
+    padding: 2px;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+  div.nav > ul > li {
+    margin: 0px;
+  }
+  h1, h1.second1 {
+    font-size: 40px;
+  }
+  .footer-col > .social-links > a{
+    height: 30px;
+    width: 30px;
+    margin: 0px;
+  }
 }
