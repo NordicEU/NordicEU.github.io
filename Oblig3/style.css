@@ -102,15 +102,15 @@ div.nav{
   background-size: cover;
 }
 .bg1 {
-  background-image: url(images/walkingStudent.jpg);
+  background-image: url(Images/walkingStudent.jpg);
   min-height: 100%;  
 }
 .bg2 {
-  background-image: url(images/Technical-Innovation.png);
+  background-image: url(Images/Technical-Innovation.png);
   min-height: 400px;
 }
 .bg3 {
-  background-image: url(images/fun.jpg);
+  background-image: url(Images/fun.jpg);
   min-height: 400px;
 }
 .tema {
