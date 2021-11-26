@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href = "../style.css" rel = "stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/kcd2xhx.css">
+    <link rel="stylesheet" href="../Sources/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Fun</title>
+    <style>
+      /*Css code that cant be global*/
+      body, html {height: 100%}
+      input {
+        width: 33%;
+      }
+      h1 {
+        font-family: anuratiregular, sans-serif;
+      }
+      h2 {
+        color: whitesmoke;
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+     <div id="part1" class="bgimg">
+        <div class="opaque1">
+          <h1>Fun</h1>
+          <div class="nav">
+            <ul class ="info">
+              <li>  <a href = "../index.html">Home</a></li>
+              <li>  <a href ="../Reflection/reflection.html"> Reflection</a> </li>
+              <li>  <a href = "../Accessibility/accessibility.html"> Accessibility </a> </li>
+              <li>  <a href ="../Topical/topical.html"> Topical</a></li>
+              <li>  <a class="active" href ="fun.html"> Fun </a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="logoTop">
+          <img class="logo" src="../Images/logo.jpg" alt="Logo">
+        </div>
+        <div class="opaque1 ">
+          <h1 class="comingSoon">COMING SOON</h1>
+          <hr class="seperator">
+          <p class="daysLeft">6000000 days left</p>
+          <p class="hint">DO NOT type inn "gamer" to get early access</p>
+          <div class="input1">
+            <div class="form__group field">
+              <input type="password" class="form__field" placeholder="Passord" name="passord" id="inputMan" required />
+              <label for="password" class="form__label">Passord</label>
+            </div>
+            <a class="button" onclick="myFunction()">Unlock</a>
+          </div>
+          
+        </div>
+        <div class="rickDiv">
+          Powered by <a class="rickRoll" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Gaming gamers 2 - The Electric Boogalo</a>
+        </div>
+      </div>
+      <div id="part2">
+        <h2 class="matrixHeader">You have entered the matrix</h2>
+      </div>
+      <script>
+        function myFunction() {
+          
+          var nonHidden = document.getElementById("part1");
+          var yesHidden = document.getElementById("part2");
+          var inputVal = document.getElementById("inputMan").value;
+
+          if (inputVal == "gamer"){
+            if (nonHidden.style.display === "none") {
+              nonHidden.style.display = "block";
+              yesHidden.style.display = "none";
+            } else {
+              nonHidden.style.display = "none";
+              document.body.style.backgroundImage = "url(../Images/hackerScreen.png)";
+              yesHidden.style.display = "block";
+            }
+          }
+        }
+      </script>
+  </body>
+  
+</html>

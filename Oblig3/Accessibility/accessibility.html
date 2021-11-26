@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link href = "../style.css" rel = "stylesheet">
+        <link rel="stylesheet" href="https://use.typekit.net/kcd2xhx.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <title>Accessibility</title>
+        <style media="screen">
+            /*Css code that cant be global*/
+            img {
+              max-width: 90%;
+            }
+              
+        </style>
+    </head>
+    <body>
+        <div class="nav">
+            <h1>Accessibility</h1>
+            <ul class ="info">
+            <li>  <a href = "../index.html">Home</a></li>
+            <li>  <a  href ="../Reflection/reflection.html"> Reflection</a> </li>
+            <li>  <a class="active" href = "accessibility.html"> Accessibility </a> </li>
+            <li>  <a href ="../Topical/topical.html"> Topical</a></li>
+            <li>  <a href ="../Fun/fun.html"> Fun </a></li>
+            </ul>
+        </div>
+
+        <div class="containerGrid">
+          <div class="Overskrift">
+            <h2>Accessibility</h2>
+          </div>
+          <div class="Bilde1">
+            <img src="../Images/universal.png" alt="Bilde av forskjellige type mennesker">
+          </div>
+          <div class="Tekst1">
+            <p>For oss er tilgjengelighet svært viktig ettersom det gjør det mulig for de aller fleste personer å få adgang til nettet på en mer sømløs og enklere måte med de aller fleste behovene tatt i betrakting.
+              Målet med å gjøre nettsiden vår mer tilgjengelig er for å bryte ned hindre som noen brukere eventuelt møter basert på deres potensielle utfordringer som for eksempel kognitiv, tekniske og andre svekkelser en kan oppleve i hverdagen.
+            </p>
+            <hr style="width: 40%;">
+            <p>
+              Vår tilnærming av denne utfordringen var å implementere universell design på vår nettside, dette vil si et design som er brukbart for de aller fleste uten å måtte tilrettelegge for spesielle behov og tilpasninger.
+              Denne tilnærmingen som vi tar for oss vil forsikre at brukeren ikke trenger å endre hvordan han eller hun samhandler med en nettside.
+              Vi tok også inkluderende design i betrakting, dette vil si en designmetodikk som går inn for å løse utfordringer og hindringer som er mer spesifikke og som trenger en mer individuell tilpasning fram for et universell tilnærmingen.
+            </p>
+            <hr style="width: 40%;">
+            <p>Eksempler på vårt arbeid på dette feltet er tilretteleggelse av folk med visuelle svekkelser hvor vi har bakt inn semantisk kode i kodestrukturen vår,
+              bilder og lignende for å gjøre det lett for nett skjermleser å lese opp innholdet til brukeren.
+          </p>
+          </div>
+          <div class="Tekst2">
+            <p>
+              Annen inkluderende design på nettsiden vår er å sørge for at innholdet har fin kontrast med bakgrunnen for å sørge og økt lesbarhet og hvordan vi har lagt til linker for å komme tilbake til toppen av siden til de som møter tekniske eller kognitive utfordringer.
+              For å teste ut alle de forskjellige tilpasningene og nettsiden som helhet brukte vi valideringsverktøy og endret koden og nettsiden etter tilbakemelding:</p>
+            </p>
+              <hr style="width: 40%;">
+            <p>
+              Ett av de flere tilbakemeldingene vi fikk fra valideringen av HTML-koden vår var bruk av alt og figcaption-tekster som gir brukeren mulighet til å kunne få lest opp innholdet til bildet fra en skjermleser, men også bildetekst under eller rundt bildet.
+               Lav kontrast mellom innholdet og fargen til footeren og teksten den prøver å formidle kom opp som et problem brukeren kan møte, og ble derfor endret til en passende farge som fremhever teksten. 
+            </p>
+            <hr style="width: 40%;">
+            <p>
+              Når det kom til HTML-kode som ikke er synlig for brukeren er hvilket språk vi brukte for oppsett og koden vår. Valideringen påpekte en forskjell mellom språket som var deklarert som vårt språkvalg og det faktiske språket vi brukte. 
+              Dette er en viktig endring for tilgjengelighet/Accessibility på grunn av hvordan skjermleserne som leser opp innholdet til den f.eks. svaksynte endrer språk og uttalelse basert på dialekt og aksent. 
+              En annen grunn til at endringen er viktig er søkemotoroptimalisering som hjelper nettsiden oppstå på mer relevante sider av nettet som kan argumenteres spiller en rolle for tilgjengelighet med tanke på svaksynte og personer med andre visuelle eller kognitive utfordringer har med å navigere seg på nettet.
+            </p>
+          </div>
+          <div class="Bilde2">
+            <img src="../Images/contrastError.png" alt="Bilde som viser kontrastfeil i koden vår">
+          </div>
+          <div class="Tekst3">
+            <p>
+              Valideringen pekte også på at lenkene våre i footeren var tomme og bør fylles inn. Vi valgte å fylle disse lenkene med en adresse til et tilfeldig sted på Google Maps.
+            </p>
+          </div>
+          <div class="Bilde3">
+            <img src="../Images/listen.png" alt="Bilde some viser tekst til tale">
+          </div>
+        </div>
+        <footer class="footer">
+          <div class="konteiner">
+            <div class="row1">
+              <div class="footer-col">
+                <h4> Contributers</h4>
+                <ul>
+                  <li> 
+                    <a href="https://www.google.com/maps/@54.6874919,25.2780503,3a,75y,99.74h,90.59t/data=!3m7!1e1!3m5!1samHyrHmbcgK-D3SSdJFGAg!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DamHyrHmbcgK-D3SSdJFGAg%26cb_client%3Dmaps_sv.tactile.gps%26w%3D203%26h%3D100%26yaw%3D51.79532%26pitch%3D0%26thumbfov%3D100!7i13312!8i6656">Gaming gamer 1</a>
+                  </li>
+                  <li> 
+                    <a href="https://www.google.com/maps/@46.835585,106.626577,2a,75y,9.41h,75.27t/data=!3m7!1e1!3m5!1s22jys14bWUFRQKvhGj3gZA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3D22jys14bWUFRQKvhGj3gZA%26cb_client%3Dmaps_sv.tactile.gps%26w%3D203%26h%3D100%26yaw%3D260%26pitch%3D0%26thumbfov%3D100!7i13312!8i6656">Gaming gamer 2</a>
+                  </li>
+                  <li>
+                    <a href="https://www.google.com/maps/@-34.9113989,-56.2080066,3a,75y,55.44h,84.28t/data=!3m7!1e1!3m5!1sEztshfWISUhjWwzt-VEJtQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3DEztshfWISUhjWwzt-VEJtQ%26cb_client%3Dmaps_sv.tactile.gps%26w%3D203%26h%3D100%26yaw%3D141.34209%26pitch%3D0%26thumbfov%3D100!7i13312!8i6656">Gaming gamer 3</a>
+                  </li> 
+                </ul>
+              </div>
+              <div class="footer-col">
+                <h4>  Location  </h4>
+                <ul class="nedre">
+                    <li> Pilestredet 45</li>
+                    <li><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1999.6650144817356!2d10.730847216229789!3d59.92110668186985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46416e7913e2a529%3A0xd5e2f570195d26b4!2sOsloMet%20%E2%80%93%20storbyuniversitetet!5e0!3m2!1sno!2sno!4v1633019297516!5m2!1sno!2sno" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe> </li>
+                </ul>
+              </div>
+              <div class="footer-col">
+                <h4> <a href ="Contact/index.html">Contact Us</a> </h4>
+                <div class="social-links">
+                    <a href ="https://facebook.com/" target="_blank"> <i class="fab fa-facebook-f"></i> </a>
+                    <a href ="https://instagram.com/" target="_blank"> <i class="fab fa-instagram"></i> </a>
+                    <a href ="https://twitter.com/" target="_blank"> <i class="fab fa-twitter"></i> </a>
+                    <a href ="123fakemail@fakeemail.com" target="_blank"> <i class="fa fa-envelope"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+    </body>
+</html>

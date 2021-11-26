@@ -1,0 +1,555 @@
+/* GLobal CSS */
+html {
+    scroll-behavior: smooth;
+  }
+body, html {
+  font: 400 15px/1.8 "Lato", sans-serif;
+  margin: 0;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+h1, h2, h3 {
+  text-align: center;
+}
+h1{
+    font-family: cheap-pine, sans-serif;
+    font-weight: 400;
+    font-size: 700%;
+    color: darkslategray;
+    font-style: normal;
+    margin: 0px;
+}
+ul {
+  margin: 0;
+  padding: 0px;
+}
+li{
+  display: inline;
+  margin: 20px;
+}
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-size: 20px;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+  padding: 18px;
+  font-size: 17px;
+  letter-spacing: 5px;
+}
+
+/*Global classes*/
+/*NAV CLASSES*/
+ul.info {
+  text-align: center;
+}
+ul.info li{
+    display: inline;
+    margin-right: 10px;
+    border-width: 2px;
+    border-top: 2px;
+    padding: 15px;
+    font-family: 'Bebas Neue', cursive;
+    /*list-style-position: inside;*/
+}
+.nav > ul > li{
+    display: inline-block;
+    position: relative;
+}
+.nav > ul > li > a{
+    color: black;
+}
+.nav > ul > li > a:hover{
+    border: 3px solid darkslategray;
+    margin: -3px;
+    color: darkslategray;
+}
+.nav a.active {
+    background-color: darkslategray;
+    color: white;
+}
+.nav a.active:hover {
+  color: white;
+}
+div.nav{
+  border: 1px solid black;
+}
+/*Footer classes/css */
+.footer{
+  padding-top: 10px;
+  margin-top: 20px;
+  background-color: darkslategray;
+}
+
+/*Structuring the footer*/
+.konteiner{
+  display: flex;
+  width:100%;
+  height:100%;
+  
+  padding-top: 20px;
+  font-family:'Bebas Neue', cursive;
+}
+.row1{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+.footer-col{
+  width: 25%;
+  padding: 0 15px;
+  padding-left: 15px;
+  padding-right: 30px;
+}
+
+/*Footer header*/
+.footer-col h4{
+  font-family: 'Bebas Neue', cursive;
+  color: white;
+  text-transform: capitalize;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  margin-bottom: 30px;
+  font-weight: 500;
+  position: relative;
+}
+
+.footer-col h4::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: white;
+  height: 2px;
+  align-self: auto;
+  box-sizing: border-box;
+  width: 70px;
+
+}
+
+/*Footer structure for each collum*/
+.footer-col ul li:not(:last-child){
+  margin-bottom: 10px;
+}
+.footer-col ul li a{
+  font-size: 16px;
+  text-transform: capitalize;
+  text-decoration: none;
+  font-weight: 300;
+  display: block;
+}
+.footer-col ul li{
+  position: relative;
+  padding-bottom: 10px;
+}
+.footer-col ul a::after{
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: white;
+  width: 0%;
+  transition: all ease-in-out 250ms;
+}
+.footer-col ul li a:hover::after{
+  width: 60%;
+}
+
+/* Social links css */
+.footer-col > .social-links > a{
+  display: inline-block;
+  height: 35px;
+  width: 35px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 3px 3px 3px 3px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: whitesmoke;
+  transition: all 0.5s ease;
+  padding: 10px;
+}
+.sosiale-links{
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  justify-items: center;
+}
+.footer-col .social-links a:hover{
+  color: #24262b;
+  background-color: #ffffff;
+}
+
+/* Map CSS*/
+.nedre{
+  padding-right: 130px;
+}
+.nedre li {
+  color: white;
+}
+
+/*Index ids*/
+#tema2 {
+  color: black;
+  background-color:white;
+  text-align:center;
+  padding:50px 80px;
+  text-align: justify;
+}
+
+/*Index classes*/
+.bg1, .bg2, .bg3{
+  position: relative;
+  opacity: 0.65;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg1 {
+  background-image: url(Images/walkingStudent.jpg);
+  min-height: 100%;  
+}
+.bg2 {
+  background-image: url(Images/Technical-Innovation.png);
+  min-height: 400px;
+}
+.bg3 {
+  background-image: url(Images/fun.jpg);
+  min-height: 400px;
+}
+.tema {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+.tema span.border {
+  background-color: darkslategray;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+/* Accessability classes*/
+.containerGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Overskrift Overskrift Overskrift Overskrift Overskrift"
+    "Bilde1 Bilde1 Tekst1 Tekst1 Tekst1"
+    "Bilde1 Bilde1 Tekst1 Tekst1 Tekst1"
+    "Tekst2 Tekst2 Tekst2 Bilde2 Bilde2"
+    "Tekst2 Tekst2 Tekst2 Bilde2 Bilde2"
+    "Tekst3 Tekst3 Tekst3 Bilde3 Bilde3"
+    "Tekst3 Tekst3 Tekst3 Bilde3 Bilde3";
+}
+.Overskrift { grid-area: Overskrift; }
+  
+.Tekst1 { grid-area: Tekst1; }
+
+.Bilde1 { grid-area: Bilde1; }
+
+.Bilde2 { grid-area: Bilde2; }
+
+.Tekst2 { grid-area: Tekst2; }
+
+.Tekst3 { grid-area: Tekst3; }
+
+.Bilde3 { grid-area: Bilde3; }
+
+.containerGrid > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+/* Topical classes*/
+.sources a{
+  color: #24262b;
+  padding: 5px;
+  letter-spacing: 0px;
+  font-size: 17px;
+  letter-spacing: 2px;
+}
+.sources a:hover {
+  color: darkslateblue;
+  border-bottom: 3px solid darkslategray;
+}
+
+/*reflection and topical layout classes*/
+.card {
+  background: #f7f7f7;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 7px 7px 10px 3px darkgrey;
+}
+.card > div {
+  vertical-align: middle;
+  display: inline-block;
+
+}
+.card > div.left,
+.card > div.right {
+  height: 100%;
+  width: 45%;
+}
+/* Fun ids */
+#part2 {
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  background:rgba(0, 0, 0, 0.7);
+}
+/* Fun classes */
+.opaque1 { /* for all browsers*/
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.comingSoon {
+  font-size: 64px;
+  position:relative;
+}
+.seperator {
+  border-color:#9e9e9e;
+  margin:auto;
+  width:40%;
+}
+.daysLeft {
+  font-size: 18px;
+  text-align: center;
+}
+.hint {
+  text-align: center;
+}
+/*Backgroundimage*/
+.bgimg {
+  background-image: url('Images/waitingStudent.jpg');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  animation:opac 0.8s;
+  color:darkslategray;
+}
+.logoTop {
+  position:absolute;
+  left:0;
+  top:0;
+  padding:12px 24px;
+  font-size:24px;
+}
+.logo {
+  max-width:250px;
+}
+/* Inputfield CSS*/
+.input1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+}
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #111;
+  outline: 0;
+  font-size: 1.3rem;
+  color: darkslategray;
+  padding: 7px 0;
+  margin-bottom: 10px;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+.form__field::placeholder {
+    color: transparent;
+}
+.form__field:focus {
+  padding-bottom: 6px;  
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #11998e,#38ef7d);
+  border-image-slice: 1;
+}
+.form__field:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+}
+.form__field:focus ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #11998e;
+    font-weight:700;    
+}
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #111;
+}
+/* reset input */
+.form__field:required,.form__field:invalid {
+   box-shadow:none; }
+
+/* Button CSS */
+.button {
+  position: relative;
+  padding: 10px 30px;
+  margin: 10px 15px;
+  color: darkslategray;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 20px;
+  transition: 0.5s;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-box-reflect: below 1px linear-gradient(transparent,#0003);
+}
+
+.button:nth-child(1) {
+  filter: hue-rotate(115deg);
+}
+.button:hover {
+  background: #21ebff;
+  color:darkslategray;
+  box-shadow: 0 0 50px #21ebff;
+  transition-delay: 0.5s;
+}
+.button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid darkslategray;
+  border-left: 2px solid darkslategray;
+  transition-delay: 0.5s;
+}
+.button:hover:before {
+  width: 100%;
+  height: 100%;
+  transition-delay: 0.5s;
+}
+.button:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid darkslategray;
+  border-right: 2px solid darkslategray;
+  transition-delay: 0.5s;
+}
+.button:hover:after {
+  width: 100%;
+  height: 100%;
+  transition-delay: 0.5s;
+}
+/*Rick Roll css */
+.rickDiv{
+  color: white;
+  position:absolute;
+  left:0;
+  bottom:0;
+  padding:12px 24px;
+}
+.rickRoll {
+  color: white;
+}
+/* Secret page css */
+.matrixHeader{
+  padding: 20px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  -ms-transform:translate(-50%,-50%);
+}
+/* Phone Screen css */
+@media (max-width: 915px) {
+  div.nav > ul > li > a {
+    margin: 0px;
+    padding: 2px;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+  }
+  div.nav > ul > li {
+    margin: 0px;
+  }
+  h1, h1.second1 {
+    font-size: 40px;
+  }
+  h2 {
+    font-size: 25px;
+  }
+  .footer-col > .social-links > a{
+    height: 30px;
+    width: 30px;
+    margin: 0px;
+  }
+  .row1 {
+    display: block;
+  }
+  p {
+    font-size: 20px;
+  }
+  .sources a {
+    font-size: 20px;
+  }
+  .logo {
+    max-width: 80px;
+  }
+  .containerGrid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "Overskrift"
+    "Tekst1"
+    "Bilde1"
+    "Tekst2"
+    "Bilde2"
+    "Tekst3"
+    "Bilde3";
+  }
+  .card > div.left,
+  .card > div.right {
+  height: 45%;
+  width: 100%;
+}
+}
